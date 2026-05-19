@@ -1,0 +1,7 @@
+# Working files: source xlsx/csv/reports never get pushed to the public repo.
+# Only data/latest/ExoKyotoDataF.bin + version.json should land on GitHub.
+internal/
+.DS_Store
+*.csv
+*.xlsx
+~$*
