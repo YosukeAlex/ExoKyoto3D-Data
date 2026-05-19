@@ -19,6 +19,12 @@ cd /Users/yosukeair3/unix/gaia
     "Added 3 new TESS planets"
 ```
 
+The `data_version` is **auto-generated from the current Japan-Standard time**
+(`YYYY.MM.DD-HHMM-JST`, e.g. `2026.05.19-1850-JST`) so every push gets a
+unique stamp even within the same day. Override with
+`--data-version "<your-string>"` if you want a custom label
+(e.g. `2026.05.20-gsfc-release`).
+
 That single command:
 1. Copies the xlsx to `ExoKyotoData/internal/latest/` (Excel-lock safe)
 2. Diffs vs the previous master xlsx → list of added planets
@@ -115,8 +121,11 @@ gaia/
 {
   "project": "ExoKyoto3D",
   "repository": "ExoKyoto3D-Data",
-  "data_version": "2026.05.19N-preview",
-  "release_date": "2026-05-19",
+  "data_version":         "2026.05.19-1850-JST",
+  "release_date":         "2026-05-19",
+  "release_time_jst":     "18:50:21",
+  "release_datetime_jst": "2026-05-19 18:50:21+09:00",
+  "release_datetime_utc": "2026-05-19 09:50:21Z",
   "status": "Active",
   "data_file": "ExoKyotoDataF.bin",
   "data_path": "data/latest/ExoKyotoDataF.bin",
@@ -127,22 +136,49 @@ gaia/
 
 | Field | Purpose |
 |---|---|
-| `data_version` | The string compared client-side. **Must change** whenever the bin changes. |
-| `binary_url` | Where to download. Can point to GitHub raw, NASA/GSFC mirror, etc. |
-| `release_date` | Human display only |
-| `notes` | Shown in the in-app update dialog |
-| `status` | Free-form (`Initial`, `Active`, `Frozen`, ...) |
+| `data_version`         | The string compared client-side. Auto-generated as `YYYY.MM.DD-HHMM-JST` — **changes every minute**, so identity == time of release. |
+| `release_date`         | Human display (date) |
+| `release_time_jst`     | Human display (time, JST) |
+| `release_datetime_jst` | Full JST stamp for sorting / change-log |
+| `release_datetime_utc` | UTC equivalent (for global tracking) |
+| `binary_url`           | Where the bin lives. Can point to GitHub raw, NASA/GSFC mirror, etc. |
+| `notes`                | Shown in the in-app update dialog |
+| `status`               | Free-form (`Initial`, `Active`, `Frozen`, ...) |
 
-### Version-stamp convention
-`YYYY.MM.DD<suffix>-<channel>`, e.g.:
-- `2026.05.19-preview` (first preview)
-- `2026.05.19N-preview` (N-th preview on same day; we used `N` for the user's
-  morning re-add)
-- `2026.05.19-gsfc` (live channel after NASA/GSFC approval)
-- `2026.05.20-stable`
+### Version-stamp convention (current)
 
-Comparison is **strict string equality** — the client doesn't try to parse it,
-so any change triggers an update prompt.
+Auto: **`YYYY.MM.DD-HHMM-JST`** — derived from the maintainer machine's local
+clock (which is JST). Examples:
+- `2026.05.19-1845-JST`
+- `2026.05.19-1851-JST`
+- `2026.05.20-0930-JST`
+
+The maintainer never has to think about uniqueness — the minute resolution
+guarantees no collision across same-day pushes.
+
+Override only when you want a human-meaningful label (e.g. shipping
+milestone):
+```bash
+./exokyoto_publish.sh new.xlsx "GSFC release" --data-version "2026.05.20-gsfc-stable"
+```
+
+Comparison is **strict string equality** on the client side — any change to
+`data_version` triggers an update prompt. Direction (newer/older) doesn't
+matter; the server is the source of truth.
+
+### Client-side state: the sidecar file
+
+When the app applies a download, it writes
+`csvin/ExoKyotoDataF.bin.version` (a one-line text file) with the new
+`data_version` string. Next launch reads this sidecar first; if absent, falls
+back to the compile-time stamp `EXOKYOTO_DATA_VERSION`.
+
+This is what stops the endless update loop after a download — the compile-time
+stamp inside the binary is immutable, so without the sidecar every restart
+would re-trigger "UPDATE AVAILABLE".
+
+The sidecar can be deleted to force re-download on next launch (useful for
+testing or recovery).
 
 ---
 
@@ -293,28 +329,56 @@ launches afterward, regardless of which direction the version "moved". This is
 by design: the server side is the source of truth for "what version users
 should have".
 
-### Phase 4 (auto-download — planned)
+### Phase 4 (auto-download + auto-restart — IMPLEMENTED)
 
 ```
-ELSE branch of step 6 above:
-   1. Confirm dialog: "ExoKyoto data update available.
-                       Current : <bundled>
-                       Latest  : <remote>
-                       <notes>
-                       Download now?" [Yes / Later]
-   2. IF Yes:
-      curl -L --max-time 60 --fail '<binary_url>' -o /tmp/exokyoto_pending.bin
-      verify magic bytes "EKDBIN1\0" + reasonable size (1-50 MB)
-      mv ./csvin/ExoKyotoDataF.bin ./csvin/ExoKyotoDataF.bak.bin
-      mv /tmp/exokyoto_pending.bin ./csvin/ExoKyotoDataF.bin
-      Dialog: "Update applied. Restart the app to load the new data."
-      (we don't restart automatically because the user may have unsaved state)
+On mismatch detected:
+
+1. Dialog #1 — confirm download:
+       "ExoKyoto data update available.
+        Current : <sidecar version, or bundled if no sidecar>
+        Latest  : <remote>
+        <notes from version.json>
+        Download and apply now?"   [Later] [Download]   ← default Download
+
+2. If Download:
+   a. /usr/bin/curl -sL --max-time 60 --fail '<binary_url>' -o /tmp/exokyoto_pending.bin
+   b. Verify magic bytes "EKDBIN1\0" + sane size (1 MB – 200 MB)
+   c. rename csvin/ExoKyotoDataF.bin → csvin/ExoKyotoDataF.bak.bin (rollback safety)
+   d. cp /tmp/exokyoto_pending.bin → csvin/ExoKyotoDataF.bin
+   e. Write csvin/ExoKyotoDataF.bin.version = <remote data_version>   ← sidecar
+   f. Dialog #2 — confirm restart:
+        "Update applied: <remote>
+         Old data backed up as csvin/ExoKyotoDataF.bak.bin
+         Restart ExoKyoto now to load the new data?"   [Later] [Restart now]   ← default Restart now
+   g. If Restart now:
+        /usr/bin/open -n '<.app bundle absolute path>' &     # launch fresh instance
+        sleep 1
+        _exit(0)                                              # hard-exit this process
+
+3. If any step fails (download error / bad magic / install rc != 0):
+   - Roll back: rename .bak.bin → live bin
+   - Dialog: "Update failed. Previous data restored."
+   - No sidecar write, so next launch will retry.
 ```
+
+The `.app` bundle path is found via `_NSGetExecutablePath` + climb-3-levels:
+
+```
+/Users/x/Apps/ExoKyoto3D.app/Contents/MacOS/SolarClass
+                              ↓ climb 3 levels
+/Users/x/Apps/ExoKyoto3D.app
+```
+
+If `_NSGetExecutablePath` doesn't end in a `.app/Contents/MacOS/...` path (dev
+mode), the auto-restart is disabled and the dialog reverts to a plain "please
+restart" OK button.
 
 Path note: when launched via the `.app` bundle's launcher script (see
 `build_app_bundles.sh`), cwd is `Contents/Resources/`, so `./csvin/...` is
-the correct in-bundle location for the bin. Code-signed apps may refuse this
-in the future — current unsigned distribution allows it.
+the correct in-bundle location for both the bin and its sidecar. Code-signed
+apps may refuse the in-place overwrite in the future — current unsigned
+distribution allows it.
 
 ---
 

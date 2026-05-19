@@ -1,11 +1,14 @@
 {
   "project": "ExoKyoto3D",
   "repository": "ExoKyoto3D-Data",
-  "data_version": "2026.05.19N-preview",
+  "data_version": "2026.05.19-1851-JST",
   "release_date": "2026-05-19",
+  "release_time_jst": "18:51:32",
+  "release_datetime_jst": "2026-05-19 18:51:32+09:00",
+  "release_datetime_utc": "2026-05-19 09:51:32Z",
   "status": "Active",
   "data_file": "ExoKyotoDataF.bin",
   "data_path": "data/latest/ExoKyotoDataF.bin",
   "binary_url": "https://raw.githubusercontent.com/YosukeAlex/ExoKyoto3D-Data/main/data/latest/ExoKyotoDataF.bin",
-  "notes": "Added KMT-2021-BLG-0424 b and TOI-7716 b (2 new entries)"
+  "notes": "Auto-timestamped data_version + sidecar + auto-restart"
 }
