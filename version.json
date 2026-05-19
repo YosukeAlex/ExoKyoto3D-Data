@@ -1,0 +1,11 @@
+{
+  "project": "ExoKyoto3D",
+  "repository": "ExoKyoto3D-Data",
+  "data_version": "2026.05.19-preview",
+  "release_date": "2026-05-19",
+  "status": "Initial",
+  "data_file": "ExoKyotoDataF.bin",
+  "data_path": "data/latest/ExoKyotoDataF.bin",
+  "binary_url": "https://raw.githubusercontent.com/YosukeAlex/ExoKyoto3D-Data/main/data/latest/ExoKyotoDataF.bin",
+  "notes": "Initial binary data for ExoKyoto3D testing and data access verification."
+}
