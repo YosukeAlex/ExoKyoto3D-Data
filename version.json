@@ -12,5 +12,46 @@
   "binary_url": "https://raw.githubusercontent.com/YosukeAlex/ExoKyoto3D-Data/main/data/latest/ExoKyotoDataF.bin",
   "notes": "NASA以来の重大データ更新 (SEMPAC2026 final ingest): 59 SEMPAC stars (旧53 + Kopparapu HZ 新6)、133 planet rows. lag-1 autocorrelation diagnostic で TESS faint-field systematic limit 定量化。verification_status: FULL_RERUN_20260526=93, RESOLVED_KEPLER_MISSION (06-02/05-26/generic)=20, RESOLVED_K2_MISSION=4, TESS_ONLY_LOOSE_UPPER=3, TESS_LONG_BASELINE_LOOSE=1, K2_DILUTED_UPPER=1, FLAG_PROT_ALIAS=11. paleo (ASol系11行) は別配布 (ASolInfo.xlsx / paleo_planets.csv)。重複6件解消。新規 host追加: KMT-2021-BLG-0690 b / TOI-7394 b / 41 Her Ab (user) + HD 85512 b / Kapteyn's b/c (Controversial flag付き). 6471 rows × 158 cols.",
   "md5_bin": "1b36eb404779765d63cb7467a2611ad9",
-  "bin_size": 12828925
+  "bin_size": 12828925,
+  "overlays": {
+    "paleo_planets": {
+      "file": "paleo_planets.csv",
+      "path": "data/latest/paleo_planets.csv",
+      "url": "https://raw.githubusercontent.com/YosukeAlex/ExoKyoto3D-Data/main/data/latest/paleo_planets.csv",
+      "size": 19220,
+      "md5": "10999721bc16b81aae4902a2072973e9",
+      "rows": 30,
+      "format": "CSV (144 cols, subset of master 158)",
+      "purpose": "Stage-labeled paleo Solar System (ASol d/e/c stage variants, Custom1..4 metadata). Codex 2026-05-30."
+    },
+    "AsolInfo": {
+      "file": "AsolInfo.csv",
+      "path": "data/latest/AsolInfo.csv",
+      "url": "https://raw.githubusercontent.com/YosukeAlex/ExoKyoto3D-Data/main/data/latest/AsolInfo.csv",
+      "size": 19409,
+      "md5": "b22a38474ffe243ff5535d50c76619fe",
+      "rows": 46,
+      "format": "CSV (158 cols matching master schema)",
+      "purpose": "Numeric-epoch paleo Solar System (ASol b/c/d/e/f/g/h/i × 500/1000/2000/3000/4000 MY). Per-epoch evolving star activity (Aspot_u, Prot, star_age, star_teff). User-authored 2026-06-02.",
+      "bin_file": "AsolInfo.bin",
+      "bin_url": "https://raw.githubusercontent.com/YosukeAlex/ExoKyoto3D-Data/main/data/latest/AsolInfo.bin",
+      "bin_md5": "8bc8ed12ce7630f7291315004860b6bb",
+      "bin_size": 19519
+    },
+    "Binary_Master": {
+      "file": "Binary_Master.csv",
+      "path": "data/latest/Binary_Master.csv",
+      "url": "https://raw.githubusercontent.com/YosukeAlex/ExoKyoto3D-Data/main/data/latest/Binary_Master.csv",
+      "size": 17532,
+      "md5": "d1729ec9feff9f61e24cd9a6953d71aa",
+      "rows": 13,
+      "format": "CSV (51 cols, Binary mode parameters)",
+      "purpose": "Binary star system master (separation_au, period_days, planet_orbit_type, physical_info, member_aliases). Source: gaia/binary/Binary_Master.xlsx.",
+      "bin_file": "binary.bin",
+      "bin_url": "https://raw.githubusercontent.com/YosukeAlex/ExoKyoto3D-Data/main/data/latest/binary.bin",
+      "bin_md5": "84ee1231d926786dd1256f85c0286352",
+      "bin_size": 10401,
+      "policy": "gaia/binary/BINARY_MASTER_TABLE_POLICY_20260527.md"
+    }
+  }
 }
