@@ -13,7 +13,7 @@
 #   ./exokyoto_publish.sh new.xlsx "tweak A" 2026.05.20-stable
 #
 # What this script does (in order):
-#   1. python3 exokyoto_update_pipeline.py
+#   1. python3 "$TOOLS_DIR/exokyoto_update_pipeline.py"
 #        - copies xlsx → internal/latest/ (working copy)
 #        - queries NASA Exoplanet Archive for any *new* planets (vs internal/latest)
 #        - queries ADS for paper references for any *new* planets
@@ -23,7 +23,7 @@
 #                   data/latest/ExoKyotoDataF.bin → data/past/<stamp>
 #        - installs new bin → data/latest/
 #        - writes ExoKyotoData/version.json
-#   2. ./exokyoto_github_push.sh
+#   2. "$TOOLS_DIR/exokyoto_github_push.sh"
 #        - commits + pushes the changed files to GitHub via SSH
 #        - default commit message:  "data: <data_version> — <notes>"
 
@@ -38,7 +38,10 @@ XLSX="$1"
 NOTES="${2:-}"
 DV="${3:-}"
 
-GAIA_DIR="/Users/yosukeair3/unix/gaia"
+# 2026-08-31: パイプラインは gaia/ → ExoKyotoData/ → ExoKyotoData/tools/ と移動した。
+# 絶対パス直書きをやめ、このスクリプト自身の位置を基準にする。
+TOOLS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+GAIA_DIR="$TOOLS_DIR"
 cd "$GAIA_DIR"
 
 # Auto-derive data_version from xlsx filename if not given:
@@ -69,7 +72,7 @@ PIPELINE_ARGS=(
 [ -n "$NOTES" ] && PIPELINE_ARGS+=(--release-notes "$NOTES")
 [ -n "$ADS_TOKEN" ] || echo "WARNING: ADS_TOKEN not set — paper lookup for new planets will be skipped"
 
-python3 exokyoto_update_pipeline.py "${PIPELINE_ARGS[@]}"
+python3 "$TOOLS_DIR/exokyoto_update_pipeline.py" "${PIPELINE_ARGS[@]}"
 
 echo ""
 echo "================================================================"
@@ -77,7 +80,7 @@ echo "  Pushing to GitHub"
 echo "================================================================"
 
 # Step 2: git push
-./exokyoto_github_push.sh
+"$TOOLS_DIR/exokyoto_github_push.sh"
 
 echo ""
 echo "================================================================"

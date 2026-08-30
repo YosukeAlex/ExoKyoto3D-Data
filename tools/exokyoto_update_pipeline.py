@@ -36,6 +36,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import json
 import os
 import re
@@ -64,8 +65,34 @@ from typing import Dict, List, Optional, Set, Tuple
 # -----------------------------------------------------------------------------
 # Paths (resolved relative to this script's location)
 # -----------------------------------------------------------------------------
-GAIA_ROOT          = Path(__file__).resolve().parent
-EKD_ROOT           = GAIA_ROOT / "ExoKyotoData"
+SCRIPT_DIR         = Path(__file__).resolve().parent
+
+def _find_ekd_root(start: Path) -> Path:
+    """ExoKyotoData リポジトリの root（data/latest を持つディレクトリ）を探す。
+
+    2026-08-31: このスクリプトは gaia/ → gaia/ExoKyotoData/ → gaia/ExoKyotoData/tools/
+    と二度移動した。旧コードは EKD_ROOT = 自分の親 / "ExoKyotoData" 固定で、
+    移動のたびに存在しない場所を指した。しかも mkdir(parents=True) がその偽の
+    ディレクトリを作ってしまうため、**エラーにならずに「配信されない成功」**になる。
+    実際に 2026-08-31 の直前まで壊れていた。
+
+    そこで自分の位置から上へ辿り、data/latest を実際に持つディレクトリを root とする。
+    見つからなければ黙って続けず、その場で止める。
+    """
+    for base in (start, *start.parents):
+        if (base / "data" / "latest").is_dir():
+            return base
+        cand = base / "ExoKyotoData"
+        if (cand / "data" / "latest").is_dir():
+            return cand
+    raise SystemExit(
+        "ExoKyotoData の root が見つからない（data/latest を持つディレクトリが無い）。\n"
+        f"  探索の起点: {start}\n"
+        "  ★偽のディレクトリを作って進むより、ここで止める方が安全である。"
+    )
+
+EKD_ROOT           = _find_ekd_root(SCRIPT_DIR)
+GAIA_ROOT          = EKD_ROOT.parent
 DATA_LATEST_DIR    = EKD_ROOT / "data"     / "latest"
 DATA_PAST_DIR      = EKD_ROOT / "data"     / "past"
 INT_LATEST_DIR     = EKD_ROOT / "internal" / "latest"
@@ -370,6 +397,13 @@ def write_version_json(out_path: Path, data_version: str, notes: str,
                        binary_url: str) -> None:
     now_jst = datetime.now(JST)
     now_utc = now_jst.astimezone(timezone.utc)
+    previous = {}
+    if out_path.exists():
+        try:
+            previous = json.loads(out_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            previous = {}
+    bin_path = DATA_LATEST_DIR / BIN_NAME
     payload = {
         "project": "ExoKyoto3D",
         "repository": "ExoKyoto3D-Data",
@@ -384,6 +418,11 @@ def write_version_json(out_path: Path, data_version: str, notes: str,
         "binary_url": binary_url,
         "notes":      notes,
     }
+    if bin_path.exists():
+        payload["md5_bin"] = hashlib.md5(bin_path.read_bytes()).hexdigest()
+        payload["bin_size"] = bin_path.stat().st_size
+    if isinstance(previous.get("overlays"), dict):
+        payload["overlays"] = previous["overlays"]
     out_path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n",
                         encoding="utf-8")
     print(f"  [version.json] wrote {out_path}  data_version={data_version}")

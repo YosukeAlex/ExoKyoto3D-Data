@@ -5,3 +5,13 @@ internal/
 *.csv
 *.xlsx
 ~$*
+
+# 2026-08-31: 作業用のスクリプトと手順書、QC 帳票は公開しない。
+# ここは公開リポジトリ ExoKyoto3D-Data の作業コピーそのものなので、
+# 直下に置いたものは push 対象になりうる。配布物は data/latest と version.json だけ。
+tools/
+docs/
+*_report.txt
+*_WrongDataScan.txt
+*.bak_*
+__pycache__/
