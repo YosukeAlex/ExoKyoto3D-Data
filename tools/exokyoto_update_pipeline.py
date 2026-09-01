@@ -431,6 +431,41 @@ def write_version_json(out_path: Path, data_version: str, notes: str,
 # -----------------------------------------------------------------------------
 # Main
 # -----------------------------------------------------------------------------
+def _normalize_name_whitespace(xlsx_path) -> int:
+    """name / star_name のタブ・連続空白・前後空白を正規化する。綴りは変えない。"""
+    import re as _re
+    from openpyxl import load_workbook
+    wb = load_workbook(xlsx_path)
+    ws = wb.active
+    head = [c.value for c in ws[1]]
+    ci = {n: i + 1 for i, n in enumerate(head)}
+    cols = [c for c in ("name", "star_name") if c in ci]
+    changed, seen = [], {}
+    for r in range(2, ws.max_row + 1):
+        for c in cols:
+            cur = ws.cell(r, ci[c]).value
+            if isinstance(cur, str):
+                new = _re.sub(r"\s+", " ", cur).strip()
+                if new != cur:
+                    ws.cell(r, ci[c]).value = new
+                    changed.append((r, c, cur, new))
+        if "name" in ci:
+            nm = ws.cell(r, ci["name"]).value
+            if nm in seen:
+                raise SystemExit(
+                    f"  ★正規化で名前が衝突した: {nm!r} (行 {seen[nm]} と {r})。"
+                    f"重複を作るより、ここで止める方が安全である。")
+            seen[nm] = r
+    if changed:
+        for r, c, a, b in changed:
+            print(f"  行{r:>6} {c:<11} {a!r} -> {b!r}")
+        wb.save(xlsx_path)
+        print(f"  ★{len(changed)} 件を正規化し、マスターに書き戻した: {xlsx_path}")
+    else:
+        print("  空白異常なし。")
+    return len(changed)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--in-xlsx",      required=True, help="New xlsx (the data update)")
@@ -484,6 +519,28 @@ def main() -> int:
         print(f"[init] working copy: {new_xlsx}")
     else:
         print(f"[init] source already in place: {new_xlsx}")
+
+    # ---- 0. 名前の空白を正規化する（★恒久の門、2026-09-01 追加）----
+    #
+    #   惑星名・ホスト名は exoplanet.eu / NASA から取り込まれたまま
+    #   **一度も正規化されていなかった。**2026-09-01 の全数調査で 9 件が壊れており、
+    #   そのすべてが **2026-03-23 の最初のファイルから存在**していた。約6ヶ月、
+    #   すべてのマスターが受け継いでいたことになる。
+    #
+    #     連続空白  'GJ 367  b'  'HD 88986   b'  'GJ 504  b' ...
+    #     末尾空白  star_name = 'K2-141 '
+    #     ★タブ    'PSR J0636+5129\tb'
+    #
+    #   害:
+    #     1. 名前照合が**静かに失敗する。**TESSAll が 'GJ 367 b' で参照しても
+    #        一致せず、片方だけが「無い」と報告される。実際にこれで発見した。
+    #     2. タブは**タブ区切りのツアー TSV を壊す。**列がずれる。
+    #     3. star_name の末尾空白はホスト単位の集計を静かに二重化する。
+    #
+    #   ★源が exoplanet.eu にある以上、マスターを一度直しても**次のラウンドで戻る。**
+    #   だからここで毎回正規化する。綴りは変えない。空白の扱いだけを直す。
+    print(f"\n=== [0/8] 名前の空白を正規化 ===")
+    _normalize_name_whitespace(new_xlsx)
 
     # ---- 1. diff ----
     print(f"\n=== [1/8] DIFF ===")

@@ -1,16 +1,16 @@
 {
   "project": "ExoKyoto3D",
   "repository": "ExoKyoto3D-Data",
-  "data_version": "2026.09.01-0935-JST",
+  "data_version": "2026.09.01-0942-JST",
   "release_date": "2026-09-01",
-  "release_time_jst": "09:36:17",
-  "release_datetime_jst": "2026-09-01 09:36:17+09:00",
-  "release_datetime_utc": "2026-09-01 00:36:17Z",
+  "release_time_jst": "09:42:45",
+  "release_datetime_jst": "2026-09-01 09:42:45+09:00",
+  "release_datetime_utc": "2026-09-01 00:42:45Z",
   "status": "Active",
   "data_file": "ExoKyotoDataF.bin",
   "data_path": "data/latest/ExoKyotoDataF.bin",
   "binary_url": "https://raw.githubusercontent.com/YosukeAlex/ExoKyoto3D-Data/main/data/latest/ExoKyotoDataF.bin",
-  "notes": "惑星名・ホスト名の空白異常9件を正規化: 連続空白6件(GJ 367 b / GJ 504 b / K2-384 e / TOI-4552 b / HD 88986 b)、末尾空白3件(K2-141 x2 / WASP-81)、およびタブ文字1件(PSR J0636+5129)。原因は名前がexoplanet.eu/NASAから取り込まれたまま一度も正規化されていなかったこと。連続空白は名前照合を静かに失敗させ、タブはタブ区切りのツアーTSVを壊す。綴りは変更していない。6538惑星×158列。",
+  "notes": "Alfven overlay を新規配布: 惑星ごとのアルフベン面分類 (磁場・アルフベン半径・a/r_A・sub/borderline/super・Hu bin) 163行。TESSAll 2026-08-31 全再計算(160惑星/82ホスト)+2026-09-01追補(GJ 1002 b/c, Kepler-1638 b)。★ハビタブル79個を全件カバー。158列制約に触れないよう version.json の overlay 機構に載せた(既存の paleo_planets / AsolInfo / Binary_Master と同じ形)。本体の惑星データは不変(6538×158)。",
   "md5_bin": "3cd1cc9b5da99823809f1d688d004bab",
   "bin_size": 13023247,
   "overlays": {
@@ -52,6 +52,23 @@
       "bin_md5": "84ee1231d926786dd1256f85c0286352",
       "bin_size": 10401,
       "policy": "gaia/binary/BINARY_MASTER_TABLE_POLICY_20260527.md"
+    },
+    "alfven": {
+      "file": "alfven.csv",
+      "path": "data/latest/alfven.csv",
+      "url": "https://raw.githubusercontent.com/YosukeAlex/ExoKyoto3D-Data/main/data/latest/alfven.csv",
+      "size": 36781,
+      "md5": "30ed7e2d96c917e0222d5e618529d1da",
+      "rows": 163,
+      "format": "CSV (11 cols: host_name, planet_name, B_gauss, Prot_d, Prot_conf, r_A_au, a_over_rA, regime, Hu_bin, method, source)",
+      "purpose": "Alfven-surface classification per planet: stellar magnetic field from rotation, Alfven radius (split-monopole, v_w=400 km/s), a/r_A, and sub/borderline/super-Alfvenic regime with Hu bin. Source: TESSAll recompute 2026-08-31 (160 planets / 82 hosts) plus 2026-09-01 addendum (GJ 1002 b/c, Kepler-1638 b). Covers all 79 habitable-zone planets. Kept out of the 158-column master by design: the column count is a hard constraint and the C++ reader holds fixed column offsets. Values are NOT duplicated into revision_note, because numbers buried in prose stop being machine-readable and break per-row provenance.",
+      "unbound_rows": [
+        "GJ 163 e",
+        "GJ 163 f",
+        "GJ 832 c"
+      ],
+      "unbound_note": "These planets are not present in the 158-column master. Reported rather than dropped, so the discrepancy stays visible.",
+      "provenance": "gaia/TESS/recompute_20260901/alfven_overlay_candidate_20260901.csv"
     }
   }
 }
