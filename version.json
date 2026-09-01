@@ -1,16 +1,16 @@
 {
   "project": "ExoKyoto3D",
   "repository": "ExoKyoto3D-Data",
-  "data_version": "2026.09.01-0946-JST",
+  "data_version": "2026.09.01-0953-JST",
   "release_date": "2026-09-01",
-  "release_time_jst": "09:46:57",
-  "release_datetime_jst": "2026-09-01 09:46:57+09:00",
-  "release_datetime_utc": "2026-09-01 00:46:57Z",
+  "release_time_jst": "09:53:25",
+  "release_datetime_jst": "2026-09-01 09:53:25+09:00",
+  "release_datetime_utc": "2026-09-01 00:53:25Z",
   "status": "Active",
   "data_file": "ExoKyotoDataF.bin",
   "data_path": "data/latest/ExoKyotoDataF.bin",
   "binary_url": "https://raw.githubusercontent.com/YosukeAlex/ExoKyoto3D-Data/main/data/latest/ExoKyotoDataF.bin",
-  "notes": "flare_ffd overlay を新規配布: フレア頻度分布のべき指数α 81ホスト分。E_max は1年で期待される最大フレア1個の規模だが、累積被曝を決めるのは頻度分布の傾きαであり、同じE_maxでもαが違えば桁で変わる。α実測7ホスト、うち信頼できる5(GJ 3323 / GJ 4274 / Gl 725 B / Kepler-1646 / Proxima Centauri)。信頼できない値も落とさず reliability フラグ付きで運ぶ。TESSAll 2026-08-31 の既存出力から抽出(追加解析なし)。★ホスト名12件はExoKyoto表記へ明示表で読み替え(接頭辞一致は Kepler-78 が Kepler-780 A に当たるため使わない)。本体は不変(6538×158)。",
+  "notes": "xuv_shoreline overlay を新規配布: ハビタブルゾーン79惑星すべてに cosmic shoreline を引いた。生涯積算XUV(静穏の飽和期→t^-1.5減衰 + FFD積分によるフレア寄与)を Zahnle & Catling 2017 の v_esc^4 則と比較。retain 25 / boundary 36 / escape 18。★太陽系の答え合わせ: 地球が境界上(margin -0.00)、火星が escape(-1.02)。仮定は列にして隠していない(alpha_source 実測4/文献既定値72/NO_DATA 3、age_source 実測46/仮定31/太陽2、mass_source)。本体不変(6538×158)。",
   "md5_bin": "3cd1cc9b5da99823809f1d688d004bab",
   "bin_size": 13023247,
   "overlays": {
@@ -81,6 +81,19 @@
       "purpose": "Flare frequency distribution per host: power-law index FFD_alpha, normalisation FFD_beta, real/candidate flare counts, observing baseline, and the reliability flag. E_max alone is the single largest flare expected in a year; alpha governs the CUMULATIVE dose, which can differ by orders of magnitude at the same E_max. Source: TESSAll recompute 2026-08-31, extracted 2026-09-01 without new analysis. alpha present for 7 of 81 hosts, reliable for 5 (GJ 3323, GJ 4274, Gl 725 B, Kepler-1646, Proxima Centauri). Unreliable values are carried, not dropped: 'not trustworthy' is different information from 'absent'.",
       "host_name_note": "host_name is the ExoKyoto star_name; host_name_tessall preserves the TESSAll spelling. 12 hosts were remapped through an explicit table, never by prefix matching -- 'Kepler-78' also prefixes 'Kepler-780 A', and guessing a name silently ships another star's numbers.",
       "provenance": "gaia/TESS/recompute_20260901/ffd_alpha_20260901.csv"
+    },
+    "xuv_shoreline": {
+      "file": "xuv_shoreline.csv",
+      "path": "data/latest/xuv_shoreline.csv",
+      "url": "https://raw.githubusercontent.com/YosukeAlex/ExoKyoto3D-Data/main/data/latest/xuv_shoreline.csv",
+      "size": 25011,
+      "md5": "af8d8fcf85b7cda073b68fb50954c12b",
+      "rows": 79,
+      "format": "CSV (19 cols: planet_name, host_name, alpha_used, alpha_source, xuv_cumulative_erg_cm2, integration_gyr, escape_metric, shoreline_side, shoreline_margin, method, source, age_gyr_used, age_source, mass_me_used, mass_source, vesc_kms, xuv_rel_earth, flare_frac, host_name_tessall)",
+      "purpose": "Cosmic shoreline for all 79 habitable-zone planets: lifetime-integrated XUV (saturated phase then t^-1.5 decay, plus the flare contribution from the FFD) against the Zahnle & Catling (2017) v_esc^4 criterion. retain 25 / boundary 36 / escape 18. Sanity check on the Solar System: Earth sits ON the boundary (margin -0.00) and Mars escapes (-1.02), so the normalisation is self-consistent. shoreline_side is three-valued and shoreline_margin (dex) is carried alongside, because the boundary itself is uncertain and a two-valued answer would hide that.",
+      "assumptions_note": "Assumptions are columns, not hidden constants. alpha_source: measured 4, literature default 72, NO_DATA 3. age_source: measured 46, ASSUMED 5.0 Gyr 31, solar canonical 2. mass_source records whether the mass is measured, m sin i, or inferred from radius.",
+      "model_doc": "gaia/TESS/shoreline_20260901/README_MODEL_20260901.md",
+      "provenance": "gaia/TESS/shoreline_20260901/xuv_shoreline_20260901.csv"
     }
   }
 }
