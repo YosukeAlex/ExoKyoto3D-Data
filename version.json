@@ -1,16 +1,16 @@
 {
   "project": "ExoKyoto3D",
   "repository": "ExoKyoto3D-Data",
-  "data_version": "2026.09.01-0942-JST",
+  "data_version": "2026.09.01-0946-JST",
   "release_date": "2026-09-01",
-  "release_time_jst": "09:42:45",
-  "release_datetime_jst": "2026-09-01 09:42:45+09:00",
-  "release_datetime_utc": "2026-09-01 00:42:45Z",
+  "release_time_jst": "09:46:57",
+  "release_datetime_jst": "2026-09-01 09:46:57+09:00",
+  "release_datetime_utc": "2026-09-01 00:46:57Z",
   "status": "Active",
   "data_file": "ExoKyotoDataF.bin",
   "data_path": "data/latest/ExoKyotoDataF.bin",
   "binary_url": "https://raw.githubusercontent.com/YosukeAlex/ExoKyoto3D-Data/main/data/latest/ExoKyotoDataF.bin",
-  "notes": "Alfven overlay を新規配布: 惑星ごとのアルフベン面分類 (磁場・アルフベン半径・a/r_A・sub/borderline/super・Hu bin) 163行。TESSAll 2026-08-31 全再計算(160惑星/82ホスト)+2026-09-01追補(GJ 1002 b/c, Kepler-1638 b)。★ハビタブル79個を全件カバー。158列制約に触れないよう version.json の overlay 機構に載せた(既存の paleo_planets / AsolInfo / Binary_Master と同じ形)。本体の惑星データは不変(6538×158)。",
+  "notes": "flare_ffd overlay を新規配布: フレア頻度分布のべき指数α 81ホスト分。E_max は1年で期待される最大フレア1個の規模だが、累積被曝を決めるのは頻度分布の傾きαであり、同じE_maxでもαが違えば桁で変わる。α実測7ホスト、うち信頼できる5(GJ 3323 / GJ 4274 / Gl 725 B / Kepler-1646 / Proxima Centauri)。信頼できない値も落とさず reliability フラグ付きで運ぶ。TESSAll 2026-08-31 の既存出力から抽出(追加解析なし)。★ホスト名12件はExoKyoto表記へ明示表で読み替え(接頭辞一致は Kepler-78 が Kepler-780 A に当たるため使わない)。本体は不変(6538×158)。",
   "md5_bin": "3cd1cc9b5da99823809f1d688d004bab",
   "bin_size": 13023247,
   "overlays": {
@@ -69,6 +69,18 @@
       ],
       "unbound_note": "These planets are not present in the 158-column master. Reported rather than dropped, so the discrepancy stays visible.",
       "provenance": "gaia/TESS/recompute_20260901/alfven_overlay_candidate_20260901.csv"
+    },
+    "flare_ffd": {
+      "file": "flare_ffd.csv",
+      "path": "data/latest/flare_ffd.csv",
+      "url": "https://raw.githubusercontent.com/YosukeAlex/ExoKyoto3D-Data/main/data/latest/flare_ffd.csv",
+      "size": 9671,
+      "md5": "4bcba371257983bba87d9caf78deb000",
+      "rows": 81,
+      "format": "CSV (11 cols: host_name, host_name_tessall, FFD_alpha, FFD_beta, n_flares_real, n_flares_candidate, obs_time_days, E_max_1yr_erg, E_max_method, alpha_reliable, source)",
+      "purpose": "Flare frequency distribution per host: power-law index FFD_alpha, normalisation FFD_beta, real/candidate flare counts, observing baseline, and the reliability flag. E_max alone is the single largest flare expected in a year; alpha governs the CUMULATIVE dose, which can differ by orders of magnitude at the same E_max. Source: TESSAll recompute 2026-08-31, extracted 2026-09-01 without new analysis. alpha present for 7 of 81 hosts, reliable for 5 (GJ 3323, GJ 4274, Gl 725 B, Kepler-1646, Proxima Centauri). Unreliable values are carried, not dropped: 'not trustworthy' is different information from 'absent'.",
+      "host_name_note": "host_name is the ExoKyoto star_name; host_name_tessall preserves the TESSAll spelling. 12 hosts were remapped through an explicit table, never by prefix matching -- 'Kepler-78' also prefixes 'Kepler-780 A', and guessing a name silently ships another star's numbers.",
+      "provenance": "gaia/TESS/recompute_20260901/ffd_alpha_20260901.csv"
     }
   }
 }
