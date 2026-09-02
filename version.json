@@ -1,16 +1,16 @@
 {
   "project": "ExoKyoto3D",
   "repository": "ExoKyoto3D-Data",
-  "data_version": "2026.09.02-1851-JST",
+  "data_version": "2026.09.02-1903-JST",
   "release_date": "2026-09-02",
-  "release_time_jst": "18:51:48",
-  "release_datetime_jst": "2026-09-02 18:51:48+09:00",
-  "release_datetime_utc": "2026-09-02 09:51:48Z",
+  "release_time_jst": "19:03:49",
+  "release_datetime_jst": "2026-09-02 19:03:49+09:00",
+  "release_datetime_utc": "2026-09-02 10:03:49Z",
   "status": "Active",
   "data_file": "ExoKyotoDataF.bin",
   "data_path": "data/latest/ExoKyotoDataF.bin",
   "binary_url": "https://raw.githubusercontent.com/YosukeAlex/ExoKyoto3D-Data/main/data/latest/ExoKyotoDataF.bin",
-  "notes": "gyro_ages / flare_clustering overlay を新規配布。gyro_ages: 自転周期からのジャイロクロノロジー年齢81ホスト(算出59、gyro_valid=True 47)。Teff<3300Kの完全対流星は較正外として値+valid=False+注記。flare_clustering: 実フレア10個以上の6ホストの時間集中度(待ち時間のCV、30日窓最大エネルギー比、最密10%期間のフレア比)。Proxima CV=6.5 / Gl 725 B 3.6 / GJ 4274 3.4 / KOI-4427 A 3.4 / GJ 3323 2.7 は強くクラスター化、Kepler-1646のみCV=0.99でポアソン的。本体不変(6538×158)。",
+  "notes": "solar_alfven_evolution overlay を新規配布: 太陽のアルフベン半径の変遷 0.1〜10 Gyr (0.014 AU → 現在0.046 AU → 0.060 AU、単調増加)。系外惑星のAlfven分類の較正基準。★地球と火星は全時代 super-Alfvenic だが地球は大気を保っている。super-Alfvenic は大気喪失を意味しない。本体不変(6538×158)。",
   "md5_bin": "3cd1cc9b5da99823809f1d688d004bab",
   "bin_size": 13023247,
   "overlays": {
@@ -116,6 +116,17 @@
       "format": "CSV (11 cols: host_name, host_name_tessall, n_flares_real, obs_span_d, waiting_cv, clustering, max_E_frac_30d, top10pct_time_flare_frac, method, source, status)",
       "purpose": "Temporal clustering of flares for the 6 hosts with at least 10 real flares. E_max says how big, alpha says how often, but neither says whether the energy arrives in bursts or evenly - and the atmospheric response differs. waiting_cv is the coefficient of variation of inter-flare waiting times (Poisson gives ~1; larger means clustered), with the largest 30-day energy fraction and the flare fraction falling in the densest 10% of the baseline. Restricted to 6 hosts on purpose: below ~10 flares the statistic is meaningless, and reporting that it cannot be measured is worth more than filling all 79.",
       "provenance": "gaia/TESS/shoreline_20260901/flare_clustering_20260901.csv"
+    },
+    "solar_alfven_evolution": {
+      "file": "solar_alfven_evolution.csv",
+      "path": "data/latest/solar_alfven_evolution.csv",
+      "url": "https://raw.githubusercontent.com/YosukeAlex/ExoKyoto3D-Data/main/data/latest/solar_alfven_evolution.csv",
+      "size": 1101,
+      "md5": "c8847b764616b3edf491e439efeb5d93",
+      "rows": 12,
+      "format": "CSV (14 cols: age_gyr, Prot_d, B_G_scaled, Mdot_scaled, Lx_rel, r_A_AU, Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune)",
+      "purpose": "Evolution of the Solar Alfven radius from 0.1 to 10 Gyr: 0.014 AU at 0.1 Gyr, 0.046 AU today, 0.060 AU at 10 Gyr - monotonically increasing. This is the calibration anchor for the exoplanet Alfven classification: the Solar System is the one case where the answer is known. ★Earth and Mars are super-Alfvenic at EVERY epoch, yet Earth keeps its atmosphere. Super-Alfvenic therefore does not mean atmospheric loss, and the 9 retain-AND-super planets in the habitable-zone sample are not a contradiction - Earth is the proof.",
+      "provenance": "gaia/TESS/paper_20260902/solar_alfven_evolution_20260902.csv"
     }
   }
 }
