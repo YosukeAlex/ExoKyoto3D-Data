@@ -1,0 +1,7 @@
+host_name,host_name_tessall,n_flares_real,obs_span_d,waiting_cv,clustering,max_E_frac_30d,top10pct_time_flare_frac,method,source,status
+GJ 3323,GJ 3323,10,751.1,2.672,clustered,0.718,0.5,waiting-time CV + 30d energy window (identical detection pipeline),clustering_20260901,ok
+GJ 4274,GJ 4274,21,1764.0,3.369,clustered,0.353,0.429,waiting-time CV + 30d energy window (identical detection pipeline),clustering_20260901,ok
+Gl 725 B,Gl 725 B,47,1858.0,3.623,clustered,0.467,0.468,waiting-time CV + 30d energy window (identical detection pipeline),clustering_20260901,ok
+KOI-4427 A,KOI-4427.01,87,1416.9,3.433,clustered,0.178,0.287,waiting-time CV + 30d energy window (identical detection pipeline),clustering_20260901,ok
+Kepler-1646,Kepler-1646,85,1445.6,0.987,poisson-like,0.082,0.188,waiting-time CV + 30d energy window (identical detection pipeline),clustering_20260901,ok
+Proxima Centauri,Proxima Centauri,151,2548.5,6.526,clustered,0.344,0.503,waiting-time CV + 30d energy window (identical detection pipeline),clustering_20260901,ok

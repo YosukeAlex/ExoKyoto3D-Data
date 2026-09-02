@@ -1,0 +1,82 @@
+host_name,host_name_tessall,Prot_d,Prot_confidence,teff_used,bv_used,gyro_age_gyr,gyro_valid,note,method,source
+55 Cnc B,55 Cnc B,147.04528349097347,MEDIUM,3286.0,1.574,31.64,False,fully convective (Teff<3300K): MH2008 calibration not established — indicative only,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+82 Eri,82 Eri,136.13521409177204,MEDIUM,5368.0,0.784,58.83,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+GJ 1061,GJ 1061,147.77846086282298,LOW,3040.0,,NO_DATA,False,Prot confidence LOW — gyro not applicable,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+GJ 15 A,GJ 15A,115.81616444614423,LOW,3567.0,,NO_DATA,False,Prot confidence LOW — gyro not applicable,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+GJ 163,GJ 163,145.22821481582318,MEDIUM,3452.0,1.532,31.66,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+GJ 180,GJ 180,43.33702252400467,MEDIUM,3754.0,1.479,3.85,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+GJ 229,GJ 229 A,101.26237230395388,MEDIUM,3700.0,1.49,17.15,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+Luyten's Star,GJ 273,7.407031778333135,HIGH,3370.0,1.549,0.16,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+GJ 3293,GJ 3293,19.657687335335996,HIGH,3500.0,1.525,0.93,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+GJ 3323,GJ 3323,8.811959724155793,HIGH,3160.0,1.646,0.21,False,fully convective (Teff<3300K): MH2008 calibration not established — indicative only,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+GJ 3378,GJ 3378,102.52934845537368,MEDIUM,3340.0,1.558,16.88,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+GJ 357,GJ 357,139.91062568779176,LOW,3478.0,,NO_DATA,False,Prot confidence LOW — gyro not applicable,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+GJ 367,GJ 367,135.12335462064962,LOW,3645.0,,NO_DATA,False,Prot confidence LOW — gyro not applicable,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+GJ 4274,GJ 4274,4.565489751785218,HIGH,3228.0,1.592,0.07,False,fully convective (Teff<3300K): MH2008 calibration not established — indicative only,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+GJ 433,GJ 433,138.18172143991353,LOW,3461.0,,NO_DATA,False,Prot confidence LOW — gyro not applicable,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+GJ 436,GJ 436,54.78771085859451,LOW,3416.0,,NO_DATA,False,Prot confidence LOW — gyro not applicable,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+GJ 667 C,GJ 667 C,16.987828057232356,HIGH,3465.0,1.53,0.72,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+GJ 682,GJ 682,97.0706096815341,LOW,3340.0,,NO_DATA,False,Prot confidence LOW — gyro not applicable,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+GJ 832,GJ 832,135.79708847775996,LOW,3470.0,,NO_DATA,False,Prot confidence LOW — gyro not applicable,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+GJ 876,GJ 876,138.52578462956555,MEDIUM,3142.0,1.667,27.16,False,fully convective (Teff<3300K): MH2008 calibration not established — indicative only,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+GJ 887,GJ 887,10.098695660515432,HIGH,3688.0,1.492,0.29,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+Gl 725 B,Gl 725 B,129.85243516001637,MEDIUM,3379.0,1.546,25.78,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+HD 137010,HD 137010,6.5882697605689415,HIGH,4811.0,0.976,0.21,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+HD 216520,HD 216520,127.92928671491183,LOW,5080.0,,NO_DATA,False,Prot confidence LOW — gyro not applicable,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+HD 283869,HD 283869,102.78463963495157,LOW,5050.0,,NO_DATA,False,Prot confidence LOW — gyro not applicable,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+HD 40307,HD 40307,116.68344370540235,LOW,4956.0,,NO_DATA,False,Prot confidence LOW — gyro not applicable,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+HD 48948,HD 48948,94.2166194076539,MEDIUM,4593.0,1.063,20.83,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+HD 85512,HD 85512,139.5631229014399,LOW,4715.0,,NO_DATA,False,Prot confidence LOW — gyro not applicable,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+HD 97658,HD 97658,79.36081817666152,LOW,5170.0,,NO_DATA,False,Prot confidence LOW — gyro not applicable,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+HIP 38594,HIP 38594,127.61154255952052,LOW,4800.0,,NO_DATA,False,Prot confidence LOW — gyro not applicable,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+HN Lib,HN Lib,5.197872545226366,HIGH,3347.0,1.556,0.09,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+K2-18,K2-18,31.6644471560742,MEDIUM,3500.0,1.525,2.16,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+K2-288 B,K2-288 B,20.309303480754448,HIGH,3341.0,1.558,0.97,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+K2-296,K2-296,21.678064299998496,HIGH,3772.0,1.476,1.14,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+K2-3,K2-3,48.35525469167614,HIGH,3900.0,1.415,4.86,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+K2-72,K2-72,26.657812216116046,HIGH,3498.0,1.525,1.59,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+KOI-4427 A,KOI-4427.01,61.9262201176201,HIGH,3813.0,1.463,7.31,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+KOI-4878,KOI-4878,16.562271559438752,HIGH,5675.0,0.693,1.77,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+Kapteyn's Star,Kapteyn's,147.04528349097347,LOW,3500.0,,NO_DATA,False,Prot confidence LOW — gyro not applicable,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+Kepler-1229 A,Kepler-1229,17.607182626383025,HIGH,3577.0,1.513,0.77,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+Kepler-138,Kepler-138,13.989440629421305,MEDIUM,3841.0,1.447,0.53,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+Kepler-1410 A,Kepler-1410,14.405247228298217,HIGH,3808.0,1.466,0.55,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+Kepler-1454,Kepler-1454,14.97704861506633,HIGH,5353.0,0.789,1.18,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+Kepler-1512 A,Kepler-1512,9.48157681945915,HIGH,3419.0,1.537,0.25,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+Kepler-1544,Kepler-1544,12.972823062796557,HIGH,4852.0,0.959,0.7,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+Kepler-1626,Kepler-1626,127.92928671491183,LOW,6553.0,,NO_DATA,False,Prot confidence LOW — gyro not applicable,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+Kepler-1629,Kepler-1629,7.450649744166084,HIGH,5708.0,0.685,0.44,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+Kepler-1632,Kepler-1632,8.043943491846756,MEDIUM,6071.0,0.577,0.82,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+Kepler-1634,Kepler-1634,20.375083948490182,HIGH,5637.0,0.703,2.48,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+Kepler-1635,Kepler-1635,13.030563038107594,MEDIUM,5240.0,0.827,0.86,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+Kepler-1646,Kepler-1646,3.50922330085415,HIGH,3227.0,1.592,0.04,False,fully convective (Teff<3300K): MH2008 calibration not established — indicative only,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+Kepler-1649 A,Kepler-1649,1.71020678813109,HIGH,2703.0,2.05,0.01,False,fully convective (Teff<3300K): MH2008 calibration not established — indicative only,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+Kepler-1652,Kepler-1652,16.330421822234456,MEDIUM,3638.0,1.502,0.68,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+Kepler-186,Kepler-186,34.49315780766231,HIGH,3748.0,1.48,2.57,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+Kepler-283 A,Kepler-283,18.175591275855666,HIGH,4141.0,1.282,0.94,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+Kepler-296 A,Kepler-296,18.018979043047313,HIGH,3526.0,1.521,0.8,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+Kepler-442,Kepler-442,46.56202143950995,HIGH,4402.0,1.149,5.53,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+Kepler-452,Kepler-452,18.30240538095157,HIGH,5589.0,0.716,1.98,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+Kepler-51,Kepler-51,5.493958185359531,HIGH,5674.0,0.694,0.25,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+Kepler-62,Kepler-62,46.41438507554773,HIGH,4859.0,0.956,6.72,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+Kepler-725,Kepler-725,18.19818696459967,HIGH,5395.0,0.775,1.71,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+Kepler-78 A,Kepler-78,12.285411355997201,HIGH,5089.0,0.873,0.72,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+LHS 1140,LHS 1140,2.2209427439832963,LOW,3100.0,,NO_DATA,False,Prot confidence LOW — gyro not applicable,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+LP 890-9,LP 890-9,80.15418758235995,LOW,2887.0,,NO_DATA,False,Prot confidence LOW — gyro not applicable,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+LTT 1445 A,LTT 1445 A,1.3983576390859198,HIGH,3562.0,1.516,0.01,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+L 98-59,L 98-59,11.305862102857084,HIGH,3415.0,1.538,0.35,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+Proxima Centauri,Proxima Centauri,142.01388842890825,MEDIUM,3042.0,1.782,26.89,False,fully convective (Teff<3300K): MH2008 calibration not established — indicative only,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+Ross 128,Ross 128,4.937078473942383,HIGH,3192.0,1.609,0.08,False,fully convective (Teff<3300K): MH2008 calibration not established — indicative only,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+Ross 318,Ross 318,132.7915005807125,MEDIUM,3450.0,1.532,27.03,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+Ross 508,Ross 508,11.050592571624628,HIGH,3071.0,1.748,0.3,False,fully convective (Teff<3300K): MH2008 calibration not established — indicative only,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+TOI-1266,TOI-1266,142.36749345653806,LOW,3563.0,,NO_DATA,False,Prot confidence LOW — gyro not applicable,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+TOI-2443,TOI-2443,5.044972516862853,MEDIUM,4375.0,1.163,0.11,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+TOI-700,TOI-700,11.42366506197551,HIGH,3480.0,1.528,0.36,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+TOI-715,TOI-715,4.756436571404594,HIGH,3187.0,1.615,0.07,False,fully convective (Teff<3300K): MH2008 calibration not established — indicative only,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+TRAPPIST-1,TRAPPIST-1,3.5432854765185104,MEDIUM,2559.0,2.05,0.04,False,fully convective (Teff<3300K): MH2008 calibration not established — indicative only,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+Teegarden's,Teegarden's,78.77094878802609,LOW,2880.0,,NO_DATA,False,Prot confidence LOW — gyro not applicable,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+Wolf 1061,Wolf 1061,5.474992908734609,HIGH,3342.0,1.557,0.1,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+Wolf 1069,Wolf 1069,148.51529390485675,LOW,3158.0,,NO_DATA,False,Prot confidence LOW — gyro not applicable,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+tau Cet,tau Cet,14.940577534422864,HIGH,5344.0,0.792,1.17,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+GJ 1002,GJ 1002,14.120966465739235,HIGH,3024.0,1.802,0.45,False,fully convective (Teff<3300K): MH2008 calibration not established — indicative only,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+Kepler-1638,Kepler-1638,82.7878257169352,LOW,5710.0,,NO_DATA,False,Prot confidence LOW — gyro not applicable,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline

@@ -1,16 +1,16 @@
 {
   "project": "ExoKyoto3D",
   "repository": "ExoKyoto3D-Data",
-  "data_version": "2026.09.01-0953-JST",
-  "release_date": "2026-09-01",
-  "release_time_jst": "09:53:25",
-  "release_datetime_jst": "2026-09-01 09:53:25+09:00",
-  "release_datetime_utc": "2026-09-01 00:53:25Z",
+  "data_version": "2026.09.02-1851-JST",
+  "release_date": "2026-09-02",
+  "release_time_jst": "18:51:48",
+  "release_datetime_jst": "2026-09-02 18:51:48+09:00",
+  "release_datetime_utc": "2026-09-02 09:51:48Z",
   "status": "Active",
   "data_file": "ExoKyotoDataF.bin",
   "data_path": "data/latest/ExoKyotoDataF.bin",
   "binary_url": "https://raw.githubusercontent.com/YosukeAlex/ExoKyoto3D-Data/main/data/latest/ExoKyotoDataF.bin",
-  "notes": "xuv_shoreline overlay を新規配布: ハビタブルゾーン79惑星すべてに cosmic shoreline を引いた。生涯積算XUV(静穏の飽和期→t^-1.5減衰 + FFD積分によるフレア寄与)を Zahnle & Catling 2017 の v_esc^4 則と比較。retain 25 / boundary 36 / escape 18。★太陽系の答え合わせ: 地球が境界上(margin -0.00)、火星が escape(-1.02)。仮定は列にして隠していない(alpha_source 実測4/文献既定値72/NO_DATA 3、age_source 実測46/仮定31/太陽2、mass_source)。本体不変(6538×158)。",
+  "notes": "gyro_ages / flare_clustering overlay を新規配布。gyro_ages: 自転周期からのジャイロクロノロジー年齢81ホスト(算出59、gyro_valid=True 47)。Teff<3300Kの完全対流星は較正外として値+valid=False+注記。flare_clustering: 実フレア10個以上の6ホストの時間集中度(待ち時間のCV、30日窓最大エネルギー比、最密10%期間のフレア比)。Proxima CV=6.5 / Gl 725 B 3.6 / GJ 4274 3.4 / KOI-4427 A 3.4 / GJ 3323 2.7 は強くクラスター化、Kepler-1646のみCV=0.99でポアソン的。本体不変(6538×158)。",
   "md5_bin": "3cd1cc9b5da99823809f1d688d004bab",
   "bin_size": 13023247,
   "overlays": {
@@ -94,6 +94,28 @@
       "assumptions_note": "Assumptions are columns, not hidden constants. alpha_source: measured 4, literature default 72, NO_DATA 3. age_source: measured 46, ASSUMED 5.0 Gyr 31, solar canonical 2. mass_source records whether the mass is measured, m sin i, or inferred from radius.",
       "model_doc": "gaia/TESS/shoreline_20260901/README_MODEL_20260901.md",
       "provenance": "gaia/TESS/shoreline_20260901/xuv_shoreline_20260901.csv"
+    },
+    "gyro_ages": {
+      "file": "gyro_ages.csv",
+      "path": "data/latest/gyro_ages.csv",
+      "url": "https://raw.githubusercontent.com/YosukeAlex/ExoKyoto3D-Data/main/data/latest/gyro_ages.csv",
+      "size": 14850,
+      "md5": "5a6350716a3eca5cbd7ddff2879333f9",
+      "rows": 81,
+      "format": "CSV (11 cols: host_name, host_name_tessall, Prot_d, Prot_confidence, teff_used, bv_used, gyro_age_gyr, gyro_valid, note, method, source)",
+      "purpose": "Gyrochronology ages per host from the rotation period (Mamajek & Hillenbrand 2008; B-V from Teff via Pecaut & Mamajek 2013). 81 hosts; an age is produced for 81 and gyro_valid is True for 47. Activity declines with age, so without an age one cannot tell whether an observed high flare rate is what the star IS or merely how young it is. gyro_valid=False marks fully convective stars (Teff<3300 K) outside the calibration: the value is carried with a note, because 'outside calibration' is different information from 'absent'. Hosts with LOW/NONE rotation confidence are NO_DATA rather than guessed.",
+      "provenance": "gaia/TESS/shoreline_20260901/gyro_ages_20260901.csv"
+    },
+    "flare_clustering": {
+      "file": "flare_clustering.csv",
+      "path": "data/latest/flare_clustering.csv",
+      "url": "https://raw.githubusercontent.com/YosukeAlex/ExoKyoto3D-Data/main/data/latest/flare_clustering.csv",
+      "size": 1036,
+      "md5": "9c1455232a40eb079a21764dbcb5d3fa",
+      "rows": 6,
+      "format": "CSV (11 cols: host_name, host_name_tessall, n_flares_real, obs_span_d, waiting_cv, clustering, max_E_frac_30d, top10pct_time_flare_frac, method, source, status)",
+      "purpose": "Temporal clustering of flares for the 6 hosts with at least 10 real flares. E_max says how big, alpha says how often, but neither says whether the energy arrives in bursts or evenly - and the atmospheric response differs. waiting_cv is the coefficient of variation of inter-flare waiting times (Poisson gives ~1; larger means clustered), with the largest 30-day energy fraction and the flare fraction falling in the densest 10% of the baseline. Restricted to 6 hosts on purpose: below ~10 flares the statistic is meaningless, and reporting that it cannot be measured is worth more than filling all 79.",
+      "provenance": "gaia/TESS/shoreline_20260901/flare_clustering_20260901.csv"
     }
   }
 }
