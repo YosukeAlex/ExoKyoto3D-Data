@@ -279,15 +279,26 @@ def fill_nasa_row(ws, row_idx: int, headers: List[str], nasa: dict):
 # Step 4: dedup (delegated)
 # -----------------------------------------------------------------------------
 def run_dedup_check(xlsx_path: Path) -> None:
-    """Invoke check_exokyotodataf_duplicates.py as a subprocess (for visibility)."""
-    script = GAIA_ROOT / "check_exokyotodataf_duplicates.py"
+    """重複チェックを別プロセスで走らせる。
+
+    ★2026-10-06 修正: この段は **2026-08-31 の移転以降ずっと黙ってスキップされていた。**
+      参照先が旧い場所（gaia 直下）のままで、スクリプトは tools/ へ移っていた。
+      見つからないと "script not found, skipping" と表示して **正常終了していた。**
+      これは EKD_ROOT で直したのと同じ「黙って成功する」失敗の型である。
+
+      重複検査は、このパイプラインで **唯一データの中身を見る検査**である。
+      飛ばしてよい段ではない。見つからなければ止める。
+    """
+    script = SCRIPT_DIR / "check_exokyotodataf_duplicates.py"
     if not script.exists():
-        print(f"  [dedup] script not found at {script}, skipping")
-        return
+        raise SystemExit(
+            f"  ★中止: 重複チェッカが見つからない ({script})\n"
+            f"   この段を飛ばすと、重複したまま公開される。\n"
+            f"   スクリプトを tools/ に置くこと。")
     print(f"  [dedup] running {script.name} on {xlsx_path.name}")
     rc = subprocess.run(
         [sys.executable, str(script), "--in-xlsx", str(xlsx_path)],
-        cwd=str(GAIA_ROOT),
+        cwd=str(SCRIPT_DIR),
     ).returncode
     print(f"  [dedup] exit code = {rc}")
 
@@ -370,8 +381,16 @@ def archive_old_master_xlsx() -> List[str]:
     sidecar reports), move all but the newest to internal/historical/xlsx/.
     Keeps internal/latest/ lean: master xlsx (just one) + bin + csv + sidecar reports."""
     INT_HIST_XLSX_DIR.mkdir(parents=True, exist_ok=True)
-    cands = [p for p in INT_LATEST_DIR.glob("ExoKyotoDataF*FullPapers*.xlsx")
-             if not re.search(r"(NasaTransitCoverage|ChangeLog|Report)", p.name)]
+    # ★2026-10-07 修正: 2026-10-06 の修正は広げすぎた。
+    #   `ExoKyotoDataF*.xlsx` を全部さらったため、**台帳や中間成果物まで退避**した
+    #   （MergeAudit / NasaAmbiguous / SimbadLedger / 各段の _Master_a〜d）。
+    #   実行中のラウンドの成果物が消えるのは危険である。
+    #   ⇒ **「マスター本体」だけを対象にする。**
+    #     本体 = ExoKyotoDataF<8桁の日付><任意>_MASTER または _Master で終わるもの。
+    #     台帳・提案・報告・段階成果物(_a.._z, _pre)は対象外。
+    MASTER_RE = re.compile(r"^ExoKyotoDataF\d{8}[A-Za-z]?_(MASTER|Master)\.xlsx$")
+    cands = [p for p in INT_LATEST_DIR.glob("ExoKyotoDataF*.xlsx")
+             if MASTER_RE.match(p.name)]
     if len(cands) <= 1:
         return []
     cands_sorted = sorted(cands)
@@ -502,11 +521,23 @@ def main() -> int:
     if args.prev_xlsx:
         prev_xlsx = Path(args.prev_xlsx).resolve()
     else:
-        cands = [p for p in INT_LATEST_DIR.glob("ExoKyotoDataF*FullPapers*.xlsx")
-                 if not re.search(r"(NasaTransitCoverage|ChangeLog|Report)", p.name)]
+        # ★2026-10-06 修正: 旧 auto-detect は `*FullPapers*` だけを探していた。
+        #   現行の命名は `*_Master*.xlsx` / `*_MASTER*.xlsx` なので候補が一つも
+        #   当たらず、当たるのは **2026-05-19 版だけ** だった。
+        #   前版を間違えると diff が嘘になり、「消えた惑星」「増えた惑星」を
+        #   誤って報告する。黙って古い版を掴むより、ここで止める方が安全である。
+        cands = [p for p in INT_LATEST_DIR.glob("ExoKyotoDataF*.xlsx")
+                 if not re.search(r"(NasaTransitCoverage|ChangeLog|Report|Duplicate|Proposal)",
+                                  p.name)]
         cands = [p for p in cands if p.resolve() != src_xlsx.resolve()
                  and p.name != src_xlsx.name]
-        prev_xlsx = sorted(cands)[-1] if cands else None
+        if not cands:
+            raise SystemExit(
+                "  ★中止: 前版の xlsx が見つからない。--prev-xlsx を明示すること。")
+        prev_xlsx = sorted(cands)[-1]
+        print(f"  [init] ★--prev-xlsx が未指定。自動選択: {prev_xlsx.name}")
+        print(f"         候補 {len(cands)} 件から名前順で最後のものを採った。")
+        print(f"         ★意図した前版でなければ中断し、--prev-xlsx を明示すること。")
 
     # Copy source xlsx to internal/latest/ FIRST. All subsequent NASA/ADS write
     # ops act on this working copy — avoids Excel-lock issues on the source and
