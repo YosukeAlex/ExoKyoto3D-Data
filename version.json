@@ -1,18 +1,18 @@
 {
   "project": "ExoKyoto3D",
   "repository": "ExoKyoto3D-Data",
-  "data_version": "2026.11.09-1419-JST",
-  "release_date": "2026-11-09",
-  "release_time_jst": "14:20:01",
-  "release_datetime_jst": "2026-11-09 14:20:01+09:00",
-  "release_datetime_utc": "2026-11-09 05:20:01Z",
+  "data_version": "2026.11.10-0735-JST",
+  "release_date": "2026-11-10",
+  "release_time_jst": "07:35:13",
+  "release_datetime_jst": "2026-11-10 07:35:13+09:00",
+  "release_datetime_utc": "2026-11-09 22:35:13Z",
   "status": "Active",
   "data_file": "ExoKyotoDataF.bin",
   "data_path": "data/latest/ExoKyotoDataF.bin",
   "binary_url": "https://raw.githubusercontent.com/YosukeAlex/ExoKyoto3D-Data/main/data/latest/ExoKyotoDataF.bin",
-  "notes": "軌道長半径と半径の空欄を補完し、全惑星を描けるようにした（docs/MISSING_VALUE_POLICY_20261109.md）。6,683惑星（軌道長半径を出せない3惑星は表示しない）。軌道長半径: NASA公表値1,157、ケプラー第3法則495（NASA公表値との差の中央値1.24%）、仮値21。半径: 質量からの推定1,561（50 M⊕未満Chen & Kipping 2017、以上はExoKyotoの温度区分つき密度式。実測1,888惑星で誤差の中央値15.4%）。NASAの'Calculated'半径1,540は実測扱いしない。推定値の等級は value_grades.csv。ハビタブル77は変化なし（半径が推定の惑星は質量≤10.21 M⊕で判定）。",
-  "md5_bin": "a4cda4caaa75f7dfb29bba89c8091a08",
-  "bin_size": 14664141,
+  "notes": "TESS再チェック（Codex 2026-11-10、既存83恒星）を反映。Kepler-1626 bの旧E_max 2.757e33 ergは別の星（TIC 184428985）由来のため撤回し空欄（正しいTIC 184559893 / KIC 5551240の3セクターでフレア未検出。未検出はゼロではない）。TOI-2298 bはE_max_methodに未検出（40セクター/848日）を記録。TIC列に座標・KICで照合した82恒星188行のTICを記入（旧TIC表の誤り15件は訂正済みの番号）。他のE_maxは不変。ハビタブル77は不変。",
+  "md5_bin": "ebbd98d58d68c8b2f8e954b871175ddb",
+  "bin_size": 14675277,
   "overlays": {
     "paleo_planets": {
       "file": "paleo_planets.csv",
@@ -57,8 +57,8 @@
       "file": "alfven.csv",
       "path": "data/latest/alfven.csv",
       "url": "https://raw.githubusercontent.com/YosukeAlex/ExoKyoto3D-Data/main/data/latest/alfven.csv",
-      "size": 36835,
-      "md5": "c33674c65a0c08e1dd5f93b22b5f52f5",
+      "size": 36923,
+      "md5": "66253ccc24445db9cba80d96c2f55b84",
       "rows": 163,
       "format": "CSV (11 cols: host_name, planet_name, B_gauss, Prot_d, Prot_conf, r_A_au, a_over_rA, regime, Hu_bin, method, source)",
       "purpose": "Alfven-surface classification per planet: stellar magnetic field from rotation, Alfven radius (split-monopole, v_w=400 km/s), a/r_A, and sub/borderline/super-Alfvenic regime with Hu bin. Source: TESSAll recompute 2026-08-31 (160 planets / 82 hosts) plus 2026-09-01 addendum (GJ 1002 b/c, Kepler-1638 b). Covers all 79 habitable-zone planets. Kept out of the 158-column master by design: the column count is a hard constraint and the C++ reader holds fixed column offsets. Values are NOT duplicated into revision_note, because numbers buried in prose stop being machine-readable and break per-row provenance.",
@@ -69,20 +69,22 @@
       ],
       "unbound_note": "These planets are not present in the 158-column master. Reported rather than dropped, so the discrepancy stays visible.",
       "provenance": "gaia/TESS/recompute_20260901/alfven_overlay_candidate_20260901.csv",
-      "update_note_20261110": "a_over_rA updated for Kepler-1544 b (0.04467 -> 0.04366) and Kepler-1638 b (0.29536 -> 0.27930) after a was filled from NASA pl_orbsmax; r_A and B unchanged; both remain sub-Alfvenic. Source: Codex TESSALL/recompute_20261109/alfven.csv."
+      "update_note_20261110": "a_over_rA updated for Kepler-1544 b (0.04467 -> 0.04366) and Kepler-1638 b (0.29536 -> 0.27930) after a was filled from NASA pl_orbsmax; r_A and B unchanged; both remain sub-Alfvenic. Source: Codex TESSALL/recompute_20261109/alfven.csv.",
+      "update_note_20261110b": "Kepler-1626: old E_max / Prot came from the wrong star TIC 184428985 and are withdrawn (correct TIC 184559893 / KIC 5551240, TESS 3 sectors, no flare). Codex TESSALL/tess_recheck_20261110. alfven: numbers kept, Prot_d flagged, recompute requested."
     },
     "flare_ffd": {
       "file": "flare_ffd.csv",
       "path": "data/latest/flare_ffd.csv",
       "url": "https://raw.githubusercontent.com/YosukeAlex/ExoKyoto3D-Data/main/data/latest/flare_ffd.csv",
-      "size": 9727,
-      "md5": "da1d6f5053a73761e1a9334731f29091",
+      "size": 9826,
+      "md5": "52f735277b21c072f7de8b53ed6663db",
       "rows": 81,
       "format": "CSV (11 cols: host_name, host_name_tessall, FFD_alpha, FFD_beta, n_flares_real, n_flares_candidate, obs_time_days, E_max_1yr_erg, E_max_method, alpha_reliable, source)",
       "purpose": "Flare frequency distribution per host: power-law index FFD_alpha, normalisation FFD_beta, real/candidate flare counts, observing baseline, and the reliability flag. E_max alone is the single largest flare expected in a year; alpha governs the CUMULATIVE dose, which can differ by orders of magnitude at the same E_max. Source: TESSAll recompute 2026-08-31, extracted 2026-09-01 without new analysis. alpha present for 7 of 81 hosts, reliable for 5 (GJ 3323, GJ 4274, Gl 725 B, Kepler-1646, Proxima Centauri). Unreliable values are carried, not dropped: 'not trustworthy' is different information from 'absent'.",
       "host_name_note": "host_name is the ExoKyoto star_name; host_name_tessall preserves the TESSAll spelling. 12 hosts were remapped through an explicit table, never by prefix matching -- 'Kepler-78' also prefixes 'Kepler-780 A', and guessing a name silently ships another star's numbers.",
       "provenance": "gaia/TESS/recompute_20260901/ffd_alpha_20260901.csv",
-      "correction_note": "GJ 4274 corrected 2026-10-07: the FFD-1yr extrapolation of 1.180230e35 erg was withdrawn (it is ~47x the observed maximum, and CROWDSAP median 0.4529 means TESS photometry cannot separate the flare source from a nearby one). Now carries the observed maximum, 2.509003e33 erg. ★alpha=-0.6429 itself is unchanged and still marked reliable; what was withdrawn is the extrapolated energy, not the slope."
+      "correction_note": "GJ 4274 corrected 2026-10-07: the FFD-1yr extrapolation of 1.180230e35 erg was withdrawn (it is ~47x the observed maximum, and CROWDSAP median 0.4529 means TESS photometry cannot separate the flare source from a nearby one). Now carries the observed maximum, 2.509003e33 erg. ★alpha=-0.6429 itself is unchanged and still marked reliable; what was withdrawn is the extrapolated energy, not the slope.",
+      "update_note_20261110b": "Kepler-1626: old E_max / Prot came from the wrong star TIC 184428985 and are withdrawn (correct TIC 184559893 / KIC 5551240, TESS 3 sectors, no flare). Codex TESSALL/tess_recheck_20261110."
     },
     "xuv_shoreline": {
       "file": "xuv_shoreline.csv",
@@ -103,12 +105,13 @@
       "file": "gyro_ages.csv",
       "path": "data/latest/gyro_ages.csv",
       "url": "https://raw.githubusercontent.com/YosukeAlex/ExoKyoto3D-Data/main/data/latest/gyro_ages.csv",
-      "size": 14850,
-      "md5": "5a6350716a3eca5cbd7ddff2879333f9",
+      "size": 14971,
+      "md5": "722b3b480a562ada37e286a112b93520",
       "rows": 81,
       "format": "CSV (11 cols: host_name, host_name_tessall, Prot_d, Prot_confidence, teff_used, bv_used, gyro_age_gyr, gyro_valid, note, method, source)",
       "purpose": "Gyrochronology ages per host from the rotation period (Mamajek & Hillenbrand 2008; B-V from Teff via Pecaut & Mamajek 2013). 81 hosts; an age is produced for 81 and gyro_valid is True for 47. Activity declines with age, so without an age one cannot tell whether an observed high flare rate is what the star IS or merely how young it is. gyro_valid=False marks fully convective stars (Teff<3300 K) outside the calibration: the value is carried with a note, because 'outside calibration' is different information from 'absent'. Hosts with LOW/NONE rotation confidence are NO_DATA rather than guessed.",
-      "provenance": "gaia/TESS/shoreline_20260901/gyro_ages_20260901.csv"
+      "provenance": "gaia/TESS/shoreline_20260901/gyro_ages_20260901.csv",
+      "update_note_20261110b": "Kepler-1626: old E_max / Prot came from the wrong star TIC 184428985 and are withdrawn (correct TIC 184559893 / KIC 5551240, TESS 3 sectors, no flare). Codex TESSALL/tess_recheck_20261110."
     },
     "flare_clustering": {
       "file": "flare_clustering.csv",

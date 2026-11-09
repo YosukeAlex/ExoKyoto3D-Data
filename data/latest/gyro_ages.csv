@@ -44,7 +44,7 @@ Kepler-1410 A,Kepler-1410,14.405247228298217,HIGH,3808.0,1.466,0.55,True,,Mamaje
 Kepler-1454,Kepler-1454,14.97704861506633,HIGH,5353.0,0.789,1.18,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
 Kepler-1512 A,Kepler-1512,9.48157681945915,HIGH,3419.0,1.537,0.25,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
 Kepler-1544,Kepler-1544,12.972823062796557,HIGH,4852.0,0.959,0.7,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
-Kepler-1626,Kepler-1626,127.92928671491183,LOW,6553.0,,NO_DATA,False,Prot confidence LOW — gyro not applicable,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
+Kepler-1626,Kepler-1626,,,6553.0,,NO_DATA,False,Prot withdrawn (measured on wrong star TIC 184428985); gyro not applicable,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline; TESS_RECHECK_20261110: old value from wrong star TIC 184428985 withdrawn; correct TIC 184559893 / KIC 5551240
 Kepler-1629,Kepler-1629,7.450649744166084,HIGH,5708.0,0.685,0.44,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
 Kepler-1632,Kepler-1632,8.043943491846756,MEDIUM,6071.0,0.577,0.82,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
 Kepler-1634,Kepler-1634,20.375083948490182,HIGH,5637.0,0.703,2.48,True,,Mamajek&Hillenbrand2008 (B-V from Pecaut&Mamajek2013),gyro_20260901; Prot: RECOMP pipeline
