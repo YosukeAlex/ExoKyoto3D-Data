@@ -1,18 +1,18 @@
 {
   "project": "ExoKyoto3D",
   "repository": "ExoKyoto3D-Data",
-  "data_version": "2026.11.09-1016-JST",
+  "data_version": "2026.11.09-1419-JST",
   "release_date": "2026-11-09",
-  "release_time_jst": "10:16:45",
-  "release_datetime_jst": "2026-11-09 10:16:45+09:00",
-  "release_datetime_utc": "2026-11-09 01:16:45Z",
+  "release_time_jst": "14:20:01",
+  "release_datetime_jst": "2026-11-09 14:20:01+09:00",
+  "release_datetime_utc": "2026-11-09 05:20:01Z",
   "status": "Active",
   "data_file": "ExoKyotoDataF.bin",
   "data_path": "data/latest/ExoKyotoDataF.bin",
   "binary_url": "https://raw.githubusercontent.com/YosukeAlex/ExoKyoto3D-Data/main/data/latest/ExoKyotoDataF.bin",
-  "notes": "2026-11月更新。PI追記135行のうち重複36件を旧行へ統合(新値を採用し、旧行の文献・URL・SIMBAD等は保持。消えた旧値0。SIMBAD確定済みの座標は保持: TOI-4629 bの追記値は100°以上ずれていた。TOI-1355 bはHD 210058 bへ改名し旧名を別名に)。新規99惑星、6686惑星×158列。新規99のうち文献78(ADS。Collier et al. 2026は出版版2026AJ....172..247C)、SIMBAD位置91行、NASAトランジット70行。ハビタブル77個は変化なし(新規でHZ軌道はTOI-2298 b 3.04R⊕のみ、半径上限で対象外)。",
-  "md5_bin": "f3c60b48a040f9c6bd0b5f7690f34fcd",
-  "bin_size": 14450907,
+  "notes": "軌道長半径と半径の空欄を補完し、全惑星を描けるようにした（docs/MISSING_VALUE_POLICY_20261109.md）。6,683惑星（軌道長半径を出せない3惑星は表示しない）。軌道長半径: NASA公表値1,157、ケプラー第3法則495（NASA公表値との差の中央値1.24%）、仮値21。半径: 質量からの推定1,561（50 M⊕未満Chen & Kipping 2017、以上はExoKyotoの温度区分つき密度式。実測1,888惑星で誤差の中央値15.4%）。NASAの'Calculated'半径1,540は実測扱いしない。推定値の等級は value_grades.csv。ハビタブル77は変化なし（半径が推定の惑星は質量≤10.21 M⊕で判定）。",
+  "md5_bin": "a4cda4caaa75f7dfb29bba89c8091a08",
+  "bin_size": 14664141,
   "overlays": {
     "paleo_planets": {
       "file": "paleo_planets.csv",
@@ -131,6 +131,18 @@
       "provenance": "gaia/TESS/paper_20260902/solar_rA_model_comparison_20260903.csv",
       "correction_note": "Supersedes the version published 2026-09-02, whose purpose text stated that Earth is super-Alfvenic at every epoch. That was wrong: it rested on the 2026-09 reconstruction, now identified as an artifact. Absolute values before ~1 Gyr depend on a single B(t) anchor (EK Dra), which is stated rather than hidden.",
       "model_doc": "gaia/TESS/paper_20260902/SOLAR_RA_MODEL_COMPARISON_20260903.md"
+    },
+    "value_grades": {
+      "file": "value_grades.csv",
+      "path": "data/latest/value_grades.csv",
+      "url": "https://raw.githubusercontent.com/YosukeAlex/ExoKyoto3D-Data/main/data/latest/value_grades.csv",
+      "size": 325421,
+      "md5": "29739d9cd718e2138cceae2ece1177c3",
+      "rows": 6683,
+      "format": "CSV (5 cols: planet_name, sma_grade, sma_method, radius_grade, radius_method)",
+      "purpose": "Provenance grade of semi_major_axis and radius for every planet in the bin: A measured (catalogue or NASA published), B derived deterministically from measured quantities (Kepler III with measured stellar mass), C empirical relation (mass-radius: Chen & Kipping 2017 below 50 M_E, ExoKyoto temperature-class density prescription above), D placeholder (assumed stellar mass, or Einstein radius for microlensing). The application shows grade B-D values with an 'estimated' label. Habitability: grade-D semi-major axes are not classified; grade-C radii are classified by mass <= 10.21 M_E instead of the 1.875 R_E size limit.",
+      "policy": "docs/MISSING_VALUE_POLICY_20261109.md (gaia/ExoKyotoData)",
+      "provenance": "tools/fill_missing_for_drawing_20261109.py + tools/build_app_list_20261109.py, 2026-11-09"
     }
   }
 }
