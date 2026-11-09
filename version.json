@@ -57,8 +57,8 @@
       "file": "alfven.csv",
       "path": "data/latest/alfven.csv",
       "url": "https://raw.githubusercontent.com/YosukeAlex/ExoKyoto3D-Data/main/data/latest/alfven.csv",
-      "size": 36923,
-      "md5": "66253ccc24445db9cba80d96c2f55b84",
+      "size": 36945,
+      "md5": "89c1668b808a54798bfc78a03f56c1cb",
       "rows": 163,
       "format": "CSV (11 cols: host_name, planet_name, B_gauss, Prot_d, Prot_conf, r_A_au, a_over_rA, regime, Hu_bin, method, source)",
       "purpose": "Alfven-surface classification per planet: stellar magnetic field from rotation, Alfven radius (split-monopole, v_w=400 km/s), a/r_A, and sub/borderline/super-Alfvenic regime with Hu bin. Source: TESSAll recompute 2026-08-31 (160 planets / 82 hosts) plus 2026-09-01 addendum (GJ 1002 b/c, Kepler-1638 b). Covers all 79 habitable-zone planets. Kept out of the 158-column master by design: the column count is a hard constraint and the C++ reader holds fixed column offsets. Values are NOT duplicated into revision_note, because numbers buried in prose stop being machine-readable and break per-row provenance.",
@@ -70,7 +70,7 @@
       "unbound_note": "These planets are not present in the 158-column master. Reported rather than dropped, so the discrepancy stays visible.",
       "provenance": "gaia/TESS/recompute_20260901/alfven_overlay_candidate_20260901.csv",
       "update_note_20261110": "a_over_rA updated for Kepler-1544 b (0.04467 -> 0.04366) and Kepler-1638 b (0.29536 -> 0.27930) after a was filled from NASA pl_orbsmax; r_A and B unchanged; both remain sub-Alfvenic. Source: Codex TESSALL/recompute_20261109/alfven.csv.",
-      "update_note_20261110b": "Kepler-1626: old E_max / Prot came from the wrong star TIC 184428985 and are withdrawn (correct TIC 184559893 / KIC 5551240, TESS 3 sectors, no flare). Codex TESSALL/tess_recheck_20261110. alfven: numbers kept, Prot_d flagged, recompute requested."
+      "update_note_20261110b": "Kepler-1626 b: replaced by Codex CODEX_20261110b. Old B=400 G, Prot=128 d, r_A=42.16 AU, a/r_A=0.00137, 'sub' came from the wrong star TIC 184428985 / borrowed M0V B and are withdrawn. Correct TIC 184559893 / KIC 5551240: rotation not validated (77.6 d candidate not adopted), no independent B/wind constraint -> B, Prot, r_A, a/r_A blank, regime unknown, Hu_bin n/a."
     },
     "flare_ffd": {
       "file": "flare_ffd.csv",
