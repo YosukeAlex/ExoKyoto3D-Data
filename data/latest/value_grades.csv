@@ -285,7 +285,6 @@ BD+14 4559 b,A,catalog,C,mass-radius Chen&Kipping2017 (no Teq) from m sin i
 BD+20 2457 c,A,catalog,C,mass-radius Chen&Kipping2017 (no Teq) from m sin i
 GJ 649 b,A,catalog,C,mass-radius Chen&Kipping2017 (no Teq) from m sin i
 GJ 649 c,A,catalog,C,mass-radius Chen&Kipping2017 from m sin i
-WD 0806-661 B b,A,catalog,C,mass-radius Chen&Kipping2017 (no Teq) from mass
 GJ 785 c,A,catalog,C,mass-radius Chen&Kipping2017 from m sin i
 OGLE-2006-109L b,A,catalog,C,mass-radius Chen&Kipping2017 (no Teq) from mass
 OGLE-2006-109L c,A,catalog,C,mass-radius Chen&Kipping2017 (no Teq) from mass
@@ -4880,7 +4879,6 @@ TOI-2443 b,A,catalog,A,catalog
 TOI-2443 c,A,catalog,C,mass-radius Chen&Kipping2017 from m sin i
 HD 209458 b,A,catalog,A,catalog
 TOI-1430 b,A,catalog,A,catalog
-TOI-396A c,A,catalog,A,catalog
 NGTS-31 b,A,catalog,A,catalog
 NGTS-32 b,A,catalog,A,catalog
 OGLE-2017-BLG-1434L b,A,catalog,C,mass-radius Chen&Kipping2017 from mass
@@ -5488,14 +5486,11 @@ GJ 625 b,A,catalog,C,mass-radius Chen&Kipping2017 from m sin i
 Kepler-90 g,A,catalog,A,catalog
 Kepler-90 h,A,catalog,A,catalog
 OGLE-2016-BLG-0007 b,A,catalog,C,mass-radius Chen&Kipping2017 from mass
-TOI-1227 Bb,A,catalog,A,catalog
-TOI-1696 Ab,A,catalog,A,catalog
 GJ 3512 b,A,catalog,C,mass-radius PI CalcDensityM (Teq class) from mass
 GJ 3512 c,A,catalog,C,mass-radius PI CalcDensityM (Teq class) from mass
 GJ 463 b,A,catalog,C,mass-radius PI CalcDensityM (Teq class) from mass
 GJ 508.2 b,A,catalog,C,mass-radius PI CalcDensityM (Teq class) from mass
 WASP-19 Ab,A,catalog,A,catalog
-TOI-5143 Ac,A,catalog,A,catalog
 TOI-654 b,A,catalog,A,catalog
 TOI-880 Ab,A,catalog,A,catalog
 TOI-880 Ac,A,catalog,A,catalog
@@ -5507,7 +5502,6 @@ HD 154088 b,A,catalog,C,mass-radius Chen&Kipping2017 from m sin i
 HD 155193 b,A,catalog,C,mass-radius PI CalcDensityM (Teq class) from m sin i
 HD 154672 Ab,A,catalog,C,mass-radius PI CalcDensityM (Teq class) from m sin i
 HD 157172 b,A,catalog,C,mass-radius Chen&Kipping2017 from m sin i
-TOI-1749 Ad,A,catalog,A,catalog
 HAT-P-12 b,A,catalog,A,catalog
 L2 Pup Ab,A,catalog,C,mass-radius Chen&Kipping2017 (no Teq) from mass
 WASP-17 b,A,catalog,A,catalog
@@ -5520,7 +5514,6 @@ Lupus-TR-3 b,A,catalog,A,catalog
 SPECULOOS-3 b,A,catalog,A,catalog
 TOI-5795 b,A,catalog,A,catalog
 TOI-833 Ab,A,catalog,A,catalog
-TOI-858 Bb,A,catalog,A,catalog
 TOI-1052 Ac,A,catalog,C,mass-radius Chen&Kipping2017 from m sin i
 TOI-1408 b,A,catalog,A,catalog
 TOI-1408 c,A,catalog,A,catalog
@@ -5628,9 +5621,6 @@ TOI-5261 b,A,catalog,A,catalog
 TOI-5350 b,A,catalog,A,catalog
 TOI-6420 b,A,catalog,A,catalog
 GJ 536 c,A,catalog,C,mass-radius Chen&Kipping2017 from m sin i
-HAT-P-23 Ab,A,catalog,A,catalog
-HATS-47 Ab,A,catalog,A,catalog
-HATS-55 Ab,A,catalog,A,catalog
 K2-139 Ab,A,catalog,A,catalog
 K2-176 Ab,B,"Kepler III (P, M*=0.932 from star_mass)",A,catalog
 K2-202 Ab,B,"Kepler III (P, M*=0.97 from star_mass)",A,catalog
@@ -5644,9 +5634,6 @@ K2-350 Ab,A,catalog,A,catalog
 K2-350 Ac,A,catalog,A,catalog
 K2-353 Ab,A,catalog,A,catalog
 K2-375 b,A,catalog,A,catalog
-K2-376 Ab,A,catalog,A,catalog
-K2-380 Ab,A,catalog,A,catalog
-K2-386 Ab,A,catalog,A,catalog
 KELT-20 Ab,A,catalog,A,catalog
 TOI-1098 Ab,A,catalog,A,catalog
 Kepler-1010 Ab,A,catalog,A,catalog
@@ -5716,13 +5703,11 @@ KOI-1066 b,A,catalog,A,catalog
 KOI-212 b,A,catalog,A,catalog
 KOI-901 b,A,catalog,A,catalog
 TOI-1743 b,A,catalog,A,catalog
-TOI-1859 Ab,A,catalog,A,catalog
 TOI-2084 Ab,A,catalog,A,catalog
 TOI-2193 Ab,A,catalog,A,catalog
 TOI-3331 Ab,A,catalog,A,catalog
 TOI-3540 Ab,A,catalog,A,catalog
 TOI-3976 Ab,A,catalog,A,catalog
-TOI-4582 Ab,B,"Kepler III (P, M*=1.34 from star_mass)",A,catalog
 TOI-6223 b,A,catalog,A,catalog
 WASP-129 Ab,A,catalog,A,catalog
 K2-155 c,A,catalog,A,catalog
@@ -5876,7 +5861,6 @@ beta Pic b,A,catalog,A,catalog
 TOI-1422 b,A,catalog,A,catalog
 TOI-1422 c,A,catalog,A,catalog
 TOI-6448 b,A,catalog,A,catalog
-TIC 241249530 Ab,A,catalog,A,catalog
 Kepler-1624 b,A,catalog,A,catalog
 Kepler-167 Ae,A,catalog,A,catalog
 Kepler-1007 Ab,A,catalog,A,catalog
@@ -5903,7 +5887,6 @@ TOI-1516 Ab,A,catalog,A,catalog
 BD-14 3065 Ab,A,catalog,A,catalog
 WISPIT 2 b,A,catalog,A,catalog
 HATS-12 b,A,catalog,A,catalog
-HAT-P-45 Ab,A,catalog,A,catalog
 HAT-P-46 b,A,catalog,A,catalog
 HAT-P-46 c,A,catalog,C,mass-radius PI CalcDensityM (Teq class) from mass
 HD 50554 b,A,catalog,C,mass-radius PI CalcDensityM (Teq class) from m sin i
@@ -6247,7 +6230,6 @@ GJ 876 d,A,catalog,C,mass-radius Chen&Kipping2017 from mass
 HD 104067 b,A,catalog,C,mass-radius Chen&Kipping2017 (no Teq) from m sin i
 HD 107148 Ab,A,catalog,C,mass-radius Chen&Kipping2017 (no Teq) from mass
 HD 107148 Ac,A,catalog,C,mass-radius Chen&Kipping2017 from mass
-PSR J2322+2650 b,A,catalog,C,mass-radius Chen&Kipping2017 (no Teq) from m sin i
 HD 114729 Ab,A,catalog,C,mass-radius PI CalcDensityM (Teq class) from mass
 HD 114783 b,A,catalog,C,mass-radius PI CalcDensityM (Teq class) from mass
 HD 114783 c,A,catalog,C,mass-radius PI CalcDensityM (Teq class) from mass
@@ -6302,7 +6284,6 @@ LHS 1140 c,A,catalog,A,catalog
 TIC 183374187 b,B,"Kepler III (P, M*=1.05 from star_mass)",A,catalog
 TCP J050742+244755 b,A,catalog,C,mass-radius Chen&Kipping2017 from mass
 OY Car (AB)b,A,catalog,C,mass-radius PI CalcDensityM (Teq class) from m sin i
-RR Cae (AB)b,A,catalog,C,mass-radius Chen&Kipping2017 (no Teq) from m sin i
 TOI-521 c,A,catalog,C,mass-radius Chen&Kipping2017 from m sin i
 TOI-470 Ab,A,catalog,A,catalog
 TOI-907 Ab,A,catalog,A,catalog
@@ -6316,7 +6297,6 @@ TOI-7393 b,A,catalog,A,catalog
 TOI-7394 Bb,A,catalog,A,catalog
 HD 93083 b,A,catalog,C,mass-radius Chen&Kipping2017 (no Teq) from m sin i
 HD 93083 c,A,catalog,C,mass-radius Chen&Kipping2017 from m sin i
-TOI-1883 Ab,A,catalog,A,catalog
 TOI-2092 Ab,B,"Kepler III (P, M*=0.956 from star_mass)",A,catalog
 iot Hor b,A,catalog,C,mass-radius PI CalcDensityM (Teq class) from m sin i
 TOI-3688 Ab,A,catalog,A,catalog
@@ -6331,14 +6311,12 @@ TOI-4311 c,A,catalog,A,catalog
 WASP-127 Ab,A,catalog,A,catalog
 K2-265 Ab,A,catalog,A,catalog
 PSR J2322-2650 b,A,catalog,C,mass-radius Chen&Kipping2017 (no Teq) from m sin i
-TOI-5786 Ab,A,catalog,A,catalog
 KMT-2021-BLG-0424 b,A,catalog,C,mass-radius Chen&Kipping2017 (no Teq) from mass
 TOI-7716 b,A,catalog,A,catalog
 TOI-2494 b,A,catalog,A,catalog
 TOI-2494 c,A,catalog,A,catalog
 TOI-5143 Ab,A,catalog,A,catalog
 KMT-2021-BLG-0690 b,A,catalog,C,mass-radius Chen&Kipping2017 (no Teq) from mass
-TOI-7394 b,A,catalog,A,catalog
 41 Her Ab,A,catalog,C,mass-radius PI CalcDensityM (Teq class) from mass
 HD 85512 b,A,catalog,C,mass-radius Chen&Kipping2017 from m sin i
 Kapteyn's b,A,catalog,C,mass-radius Chen&Kipping2017 from m sin i
@@ -6370,7 +6348,6 @@ WASP-163 Ab,A,catalog,A,catalog
 WASP-68 Ab,A,catalog,A,catalog
 WASP-70 Ab,A,catalog,A,catalog
 HATS-65 Ab,A,catalog,A,catalog
-HATS-62 Ab,A,catalog,A,catalog
 HD 125136 b,B,"Kepler III (P, M*=1.55 from star_mass)",C,mass-radius PI CalcDensityM (Teq class) from m sin i
 HD 127195 b,B,"Kepler III (P, M*=1.34 from star_mass)",C,mass-radius PI CalcDensityM (Teq class) from m sin i
 HD 127195 c,B,"Kepler III (P, M*=1.34 from star_mass)",C,mass-radius PI CalcDensityM (Teq class) from m sin i
@@ -6379,8 +6356,6 @@ HATS-11 b,A,catalog,A,catalog
 TIC 150070085 b,B,"Kepler III (P, M*=1.16 from star_mass)",A,catalog
 TIC 150070085 c,B,"Kepler III (P, M*=1.16 from star_mass)",A,catalog
 HD 88986 b,A,catalog,A,catalog
-TOI-699.01,A,catalog,A,catalog
-TOI-699.02,A,catalog,A,catalog
 Gaia-1 b,A,catalog,A,catalog
 Gaia-2 b,A,catalog,A,catalog
 HIP 63242 b,A,catalog,C,mass-radius PI CalcDensityM (Teq class) from m sin i
@@ -6474,7 +6449,7 @@ HD 103891 b,A,catalog,C,mass-radius PI CalcDensityM (Teq class) from mass
 HD 103891 c,A,catalog,C,mass-radius PI CalcDensityM (Teq class) from m sin i
 MOA-2020-BLG-108L b,A,catalog,C,mass-radius Chen&Kipping2017 (no Teq) from mass
 VHS 1256-1257 (AB)b,A,catalog,A,catalog
-WD 0806-661 b,A,catalog,A,catalog
+WD 0806-661 b,A,catalog,C,mass-radius Chen&Kipping2017 (no Teq) from mass
 GJ 3929 b,A,catalog,A,catalog
 HD 17156 b,A,catalog,A,catalog
 Qatar-4 b,A,catalog,A,catalog
@@ -6519,8 +6494,6 @@ TOI-5806 Ab,A,catalog,A,catalog
 TOI-5811 Bb,A,catalog,A,catalog
 CD-35 2722 b I,A,catalog,C,mass-radius Chen&Kipping2017 (no Teq) from m sin i
 TOI-4492 b,A,catalog,A,catalog
-WISPIT 2 (AB)b,A,catalog,A,catalog
-WISPIT 2 (AB)c,A,catalog,A,catalog
 KMT-2025-BLG-0975L b,A,catalog,C,mass-radius Chen&Kipping2017 from mass
 KMT-2025-BLG-1160L b,A,catalog,C,mass-radius Chen&Kipping2017 from mass
 TOI-3053 b,A,catalog,A,catalog
@@ -6583,7 +6556,6 @@ TOI-7404 b,A,catalog,A,catalog
 TOI-7574 b,A,catalog,A,catalog
 HD 107146 b,A,catalog,C,mass-radius PI CalcDensityM (Teq class) from mass
 TOI-7425 b,A,catalog,A,catalog
-HD 715 Ab,A,catalog,A,catalog
 HS 0209+0832 b,A,catalog,A,catalog
 TOI-5217 Ab,A,catalog,A,catalog
 TOI-5893 b,A,catalog,A,catalog
@@ -6682,3 +6654,44 @@ TOI-214 b,B,"Kepler III (P, M*=0.92 from star_mass)",A,catalog
 TOI-214 c,B,"Kepler III (P, M*=0.92 from star_mass)",A,catalog
 TOI-713 b,B,"Kepler III (P, M*=0.67 from star_mass)",A,catalog
 TOI-713 c,B,"Kepler III (P, M*=0.67 from star_mass)",A,catalog
+TOI-2535 b,A,catalog,A,catalog
+Gaia-3 b,A,catalog,C,mass-radius PI CalcDensityM (Teq class) from mass
+HIP 88962 b,A,catalog,C,mass-radius PI CalcDensityM (Teq class) from mass
+HD 38858 b,A,catalog,C,mass-radius Chen&Kipping2017 from mass
+Kepler-396 d,A,catalog,C,mass-radius Chen&Kipping2017 from mass
+TOI-1699 Ab,A,catalog,A,catalog
+TOI-1699 Ac,A,catalog,C,mass-radius PI CalcDensityM (Teq class) from m sin i
+HD 101581 d,A,catalog,A,catalog
+OGLE-2018-BLG-0829L c,A,catalog,C,mass-radius Chen&Kipping2017 (no Teq) from mass
+TOI-1274 b,B,"Kepler III (P, M*=0.747 from star_mass)",A,catalog
+TOI-1280 b,B,"Kepler III (P, M*=0.74 from star_mass)",A,catalog
+TOI-233 b,B,"Kepler III (P, M*=0.37 from star_mass)",A,catalog
+TOI-2540 c,B,"Kepler III (P, M*=0.63 from star_mass)",A,catalog
+TOI-2626 b,B,"Kepler III (P, M*=0.69 from star_mass)",A,catalog
+TOI-2665 b,A,catalog,A,catalog
+TOI-330 b,B,"Kepler III (P, M*=0.674 from star_mass)",A,catalog
+TOI-3494 b,B,"Kepler III (P, M*=0.285 from star_mass)",A,catalog
+TOI-4642 b,B,"Kepler III (P, M*=0.21 from star_mass)",A,catalog
+TOI-475 b,B,"Kepler III (P, M*=0.62 from star_mass)",A,catalog
+TOI-493 b,B,"Kepler III (P, M*=0.65 from star_mass)",A,catalog
+TOI-5112 b,B,"Kepler III (P, M*=0.59 from star_mass)",A,catalog
+TOI-5172 b,B,"Kepler III (P, M*=0.72 from star_mass)",A,catalog
+TOI-533 b,B,"Kepler III (P, M*=0.74 from star_mass)",A,catalog
+TOI-5554 b,B,"Kepler III (P, M*=0.61 from star_mass)",A,catalog
+TOI-5722 b,B,"Kepler III (P, M*=0.8 from star_mass)",A,catalog
+TOI-5735 b,B,"Kepler III (P, M*=0.18 from star_mass)",A,catalog
+TOI-6715 b,B,"Kepler III (P, M*=0.76 from star_mass)",A,catalog
+TOI-6806 b,B,"Kepler III (P, M*=0.79 from star_mass)",A,catalog
+TOI-7054 b,B,"Kepler III (P, M*=0.75 from star_mass)",A,catalog
+TOI-7062 b,B,"Kepler III (P, M*=0.81 from star_mass)",A,catalog
+TOI-1027 Ab,B,"Kepler III (P, M*=0.67 from star_mass)",A,catalog
+TOI-1027 Ac,B,"Kepler III (P, M*=0.67 from star_mass)",A,catalog
+TOI-1027 Ad,B,"Kepler III (P, M*=0.67 from star_mass)",A,catalog
+TOI-2133 b,A,catalog,A,catalog
+TOI-3586 Ab,B,"Kepler III (P, M*=0.82 from star_mass)",A,catalog
+TOI-1737 b,A,catalog,A,catalog
+TOI-2392 c,A,catalog,A,catalog
+TOI-2392 d,A,catalog,A,catalog
+TOI-4450 b,A,catalog,A,catalog
+TOI-7721 b,A,catalog,A,catalog
+TOI-1277 b,A,catalog,A,catalog

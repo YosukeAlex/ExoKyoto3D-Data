@@ -1,18 +1,18 @@
 {
   "project": "ExoKyoto3D",
   "repository": "ExoKyoto3D-Data",
-  "data_version": "2026.11.10-0822-JST",
-  "release_date": "2026-11-10",
-  "release_time_jst": "08:22:30",
-  "release_datetime_jst": "2026-11-10 08:22:30+09:00",
-  "release_datetime_utc": "2026-11-09 23:22:30Z",
+  "data_version": "2026.11.25-0909-JST",
+  "release_date": "2026-11-25",
+  "release_time_jst": "09:09:25",
+  "release_datetime_jst": "2026-11-25 09:09:25+09:00",
+  "release_datetime_utc": "2026-11-25 00:09:25Z",
   "status": "Active",
   "data_file": "ExoKyotoDataF.bin",
   "data_path": "data/latest/ExoKyotoDataF.bin",
   "binary_url": "https://raw.githubusercontent.com/YosukeAlex/ExoKyoto3D-Data/main/data/latest/ExoKyotoDataF.bin",
-  "notes": "Kepler-1626 b: ケプラーQ1–Q17（KIC 5551240、検索1223日）を再解析（Codex 2026-11-10c）。保守的基準でフレア未検出、E_maxは空欄のまま（未検出はゼロではない。短いフレアは検出できないので上限でもない）。自転は2.846日が候補だが未確定。スケーリングはgaia側で独立に検算し一致。ハビタブル77は不変。",
-  "md5_bin": "1a5088f6e55dd8a03ca5f1f13110a0cc",
-  "bin_size": 14675421,
+  "notes": "2026-11-23 round: 41 new planets; 72 same-name and 29 renamed duplicates merged (old names kept as aliases); SIMBAD positions for 1,004 rows; ADS papers for 472; NASA transit parameters filled for 4,243 planets (default and other solutions, source paper recorded per value); OGLE-2019-BLG-0299 b host fixed. New column 159 ek_id: permanent ExoKyoto planet numbers (Solar System EK-000001..000008, exoplanets from EK-001000). Habitable 77 unchanged. Independent Codex check; app --inspect-data check passed.",
+  "md5_bin": "39ae36b9212358d1a607a1d2626de722",
+  "bin_size": 16285780,
   "overlays": {
     "paleo_planets": {
       "file": "paleo_planets.csv",
@@ -144,13 +144,13 @@
       "file": "value_grades.csv",
       "path": "data/latest/value_grades.csv",
       "url": "https://raw.githubusercontent.com/YosukeAlex/ExoKyoto3D-Data/main/data/latest/value_grades.csv",
-      "size": 325421,
-      "md5": "29739d9cd718e2138cceae2ece1177c3",
-      "rows": 6683,
+      "size": 326724,
+      "md5": "20e658a8efe41f73d0be53952af3eff2",
+      "rows": 6696,
       "format": "CSV (5 cols: planet_name, sma_grade, sma_method, radius_grade, radius_method)",
       "purpose": "Provenance grade of semi_major_axis and radius for every planet in the bin: A measured (catalogue or NASA published), B derived deterministically from measured quantities (Kepler III with measured stellar mass), C empirical relation (mass-radius: Chen & Kipping 2017 below 50 M_E, ExoKyoto temperature-class density prescription above), D placeholder (assumed stellar mass, or Einstein radius for microlensing). The application shows grade B-D values with an 'estimated' label. Habitability: grade-D semi-major axes are not classified; grade-C radii are classified by mass <= 10.21 M_E instead of the 1.875 R_E size limit.",
       "policy": "docs/MISSING_VALUE_POLICY_20261109.md (gaia/ExoKyotoData)",
-      "provenance": "tools/fill_missing_for_drawing_20261109.py + tools/build_app_list_20261109.py, 2026-11-09"
+      "provenance": "tools/fill_missing_for_drawing_20261123.py + tools/build_app_list_20261109.py, 2026-11-25 (names follow the 2026-11-23 merges)"
     }
   }
 }
